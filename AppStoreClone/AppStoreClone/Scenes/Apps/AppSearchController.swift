@@ -52,7 +52,7 @@ extension AppSearchController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension AppSearchController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: UIScreen.main.bounds.width, height: 200)
+        return .init(width: UIScreen.main.bounds.width, height: 300)
     }
 }
 

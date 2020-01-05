@@ -36,6 +36,24 @@ class SearchListCell: UICollectionViewCell {
         return view
     }()
 
+    let screenshotImageView1: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .random
+        return view
+    }()
+
+    let screenshotImageView2: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .random
+        return view
+    }()
+
+    let screenshotImageView3: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .random
+        return view
+    }()
+
 
     let getButton: UIButton = {
         let button = UIButton()
@@ -51,16 +69,25 @@ class SearchListCell: UICollectionViewCell {
         super.init(frame: frame)
         self.backgroundColor = .random
 
-        HStackView(alignment: .center, spacing: 12) {
-            imageView
-            VStackView() {
-                nameLabel
-                categoryLabel
-                ratingLabel
+        let screenShotStack = HStackView(spacing: 5) {
+            screenshotImageView1
+            screenshotImageView2
+            screenshotImageView3
+        }.distribution(justify: .fillEqually)
+
+        VStackView(spacing: 10) {
+            HStackView(alignment: .center, spacing: 12.0) {
+                imageView
+                VStackView() {
+                    nameLabel
+                    categoryLabel
+                    ratingLabel
+                }
+                Spacer()
+                getButton.withWidth(70)
             }
-            Spacer()
-            getButton.withWidth(70)
-        }.withMargins(.allSides(horizontal: 16, vertical: 10))
+            screenShotStack
+        }.withMargins(.allSides(16))
     }
 
     required init?(coder: NSCoder) {
