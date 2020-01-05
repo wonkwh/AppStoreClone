@@ -12,35 +12,23 @@ class TapbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let todayVC = UIViewController()
-        todayVC.view.backgroundColor = .systemBackground
-        let todayController = UINavigationController(rootViewController: todayVC)
-        todayVC.navigationItem.title = "Today"
-        todayController.tabBarItem.title = "Today"
-        todayController.navigationBar.prefersLargeTitles = true
-        todayController.tabBarItem.image = #imageLiteral(resourceName: "today_icon")
-
-        let redVc = UIViewController()
-        redVc.view.backgroundColor = .systemBackground
-        let redController = UINavigationController(rootViewController: redVc)
-        redVc.navigationItem.title = "Apps"
-        redController.tabBarItem.title = "Apps"
-        redController.navigationBar.prefersLargeTitles = true
-        redController.tabBarItem.image = #imageLiteral(resourceName: "apps")
-
-        let blueVc = UIViewController()
-        blueVc.view.backgroundColor = .systemBackground
-        let blueController = UINavigationController(rootViewController: blueVc)
-        blueVc.navigationItem.title = "Search"
-        blueController.tabBarItem.title = "Search"
-        blueController.navigationBar.prefersLargeTitles = true
-        blueController.tabBarItem.image = #imageLiteral(resourceName: "search")
-
         viewControllers = [
-            todayController,
-            redController,
-            blueController
+            createTabNavController(title: "Today", vc: UIViewController(), tabImage: #imageLiteral(resourceName: "today_icon")),
+            createTabNavController(title: "Apps", vc: UIViewController(), tabImage: #imageLiteral(resourceName: "apps")),
+            createTabNavController(title: "Search", vc: AppSearchController(), tabImage: #imageLiteral(resourceName: "search"))
         ]
+    }
+
+    // TODO: - # createNavController and UIViewController extension for remove duplication
+    private func createTabNavController(title: String, vc: UIViewController, tabImage: UIImage) -> UIViewController{
+        vc.view.backgroundColor = .systemBackground
+        let navController = UINavigationController(rootViewController: vc)
+        vc.navigationItem.title = title
+        navController.tabBarItem.title = title
+        navController.navigationBar.prefersLargeTitles = true
+        navController.tabBarItem.image = tabImage
+
+        return navController
     }
 }
 

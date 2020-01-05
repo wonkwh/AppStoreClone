@@ -14,6 +14,7 @@
 		738A1EC023BF516700EBA4BB /* AppStoreCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1EBF23BF516700EBA4BB /* AppStoreCloneTests.swift */; };
 		738A1ECB23BF516700EBA4BB /* AppStoreCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1ECA23BF516700EBA4BB /* AppStoreCloneUITests.swift */; };
 		738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1ED823BF529A00EBA4BB /* TapBarController.swift */; };
+		73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234BD23C2123E000ED484 /* AppSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		738A1ECA23BF516700EBA4BB /* AppStoreCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreCloneUITests.swift; sourceTree = "<group>"; };
 		738A1ECC23BF516700EBA4BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		738A1ED823BF529A00EBA4BB /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		73F234BD23C2123E000ED484 /* AppSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		738A1EA723BF516600EBA4BB /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				738A1EDB23BF5B1400EBA4BB /* Scenes */,
 				738A1EDA23BF543100EBA4BB /* Resource */,
 				738A1EA823BF516600EBA4BB /* AppDelegate.swift */,
 				738A1EAC23BF516600EBA4BB /* ViewController.swift */,
@@ -131,6 +134,38 @@
 				738A1EB123BF516700EBA4BB /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		738A1EDB23BF5B1400EBA4BB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				738A1EDE23BF5B2E00EBA4BB /* Apps */,
+				738A1EDD23BF5B2800EBA4BB /* Today */,
+				738A1EDC23BF5B1F00EBA4BB /* Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		738A1EDC23BF5B1F00EBA4BB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		738A1EDD23BF5B2800EBA4BB /* Today */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		738A1EDE23BF5B2E00EBA4BB /* Apps */ = {
+			isa = PBXGroup;
+			children = (
+				73F234BD23C2123E000ED484 /* AppSearchController.swift */,
+			);
+			path = Apps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +301,7 @@
 				738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */,
 				738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */,
 				738A1EA923BF516600EBA4BB /* AppDelegate.swift in Sources */,
+				73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
