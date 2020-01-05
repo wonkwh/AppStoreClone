@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchListCell: UICollectionViewCell {
+class SearchListCell: UICollectionViewCell, Reusable {
 
     let imageView: UIImageView = {
         let view = UIImageView()
@@ -60,14 +60,14 @@ class SearchListCell: UICollectionViewCell {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.90)
         button.setCorner(16)
         return button
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .random
+        self.backgroundColor = .systemBackground
 
         let screenShotStack = HStackView(spacing: 5) {
             screenshotImageView1

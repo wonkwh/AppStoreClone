@@ -14,7 +14,7 @@ class AppSearchController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
 
-        self.collectionView.register(SearchListCell.self, forCellWithReuseIdentifier: "SearchListCell")
+        self.collectionView.register(cellType: SearchListCell.self)
     }
 
     init() {
@@ -28,16 +28,12 @@ class AppSearchController: UICollectionViewController {
 
 // MARK: - datasource
 extension AppSearchController {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchListCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
         return cell
     }
 }
@@ -52,7 +48,7 @@ extension AppSearchController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension AppSearchController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: UIScreen.main.bounds.width, height: 300)
+        return .init(width: view.frame.width, height: 350)
     }
 }
 
