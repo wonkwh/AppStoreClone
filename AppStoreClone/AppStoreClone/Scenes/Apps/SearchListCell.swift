@@ -42,14 +42,14 @@ class SearchListCell: UICollectionViewCell {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = .lightGray
-        button.setCorner(10)
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.95)
+        button.setCorner(16)
         return button
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .yellow
+        self.backgroundColor = .random
 
         HStackView(alignment: .center, spacing: 12) {
             imageView
@@ -60,7 +60,7 @@ class SearchListCell: UICollectionViewCell {
             }
             Spacer()
             getButton.withWidth(70)
-        }.withMargins(.allSides(horizontal: 5, vertical: 10))
+        }.withMargins(.allSides(horizontal: 16, vertical: 10))
     }
 
     required init?(coder: NSCoder) {
