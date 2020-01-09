@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class AppSearchController: UICollectionViewController {
 
@@ -50,6 +51,25 @@ extension AppSearchController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
         let app = appSearchResults[indexPath.row]
+        if let url = URL(string: app.artworkUrl60),
+            let screenshot1 = URL(string: app.screenshotUrls[0]) {
+            Nuke.loadImage(with: url, into: cell.imageView)
+            Nuke.loadImage(with: screenshot1, into: cell.screenshotImageView1)
+        }
+
+        if app.screenshotUrls.count > 1 {
+            if let screenshot2 = URL(string: app.screenshotUrls[1]) {
+                Nuke.loadImage(with: screenshot2, into: cell.screenshotImageView2)
+            }
+        }
+
+        if app.screenshotUrls.count > 2 {
+            if let screenshot3 = URL(string: app.screenshotUrls[2]) {
+                Nuke.loadImage(with: screenshot3, into: cell.screenshotImageView3)
+            }
+        }
+
+
         cell.nameLabel.text = app.trackName
         cell.categoryLabel.text = app.primaryGenreName
         cell.ratingLabel.text = "\(app.averageUserRating)"
