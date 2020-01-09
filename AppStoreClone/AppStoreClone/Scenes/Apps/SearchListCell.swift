@@ -13,8 +13,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
     let imageView: UIImageView = {
         let view = UIImageView()
         view.withSize(64)
-        view.backgroundColor = .random
-        view.setCorner(3)
+        view.setCorner(12)
         return view
     }()
 
@@ -38,19 +37,25 @@ class SearchListCell: UICollectionViewCell, Reusable {
 
     let screenshotImageView1: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .random
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        view.contentMode = .scaleToFill
         return view
     }()
 
     let screenshotImageView2: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .random
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        view.contentMode = .scaleToFill
         return view
     }()
 
     let screenshotImageView3: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .random
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        view.contentMode = .scaleToFill
         return view
     }()
 
@@ -60,7 +65,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
         button.setTitle("GET", for: .normal)
         button.setTitleColor(.blue, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
-        button.backgroundColor = UIColor.white.withAlphaComponent(0.90)
+        button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.setCorner(16)
         return button
     }()
