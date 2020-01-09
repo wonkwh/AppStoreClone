@@ -10,11 +10,26 @@ import UIKit
 
 class AppSearchController: UICollectionViewController {
 
+    private var appSearchResults = [SearchResult]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
 
         self.collectionView.register(cellType: SearchListCell.self)
+
+        Service.shared.fetchItunesSearchApp(keyword: "facebook") { (results, error) in
+
+            if let error = error {
+                dump(error)
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.appSearchResults = results
+                self.collectionView.reloadData()
+            }
+        }
     }
 
     init() {
@@ -29,11 +44,15 @@ class AppSearchController: UICollectionViewController {
 // MARK: - datasource
 extension AppSearchController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return appSearchResults.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
+        let app = appSearchResults[indexPath.row]
+        cell.nameLabel.text = app.trackName
+        cell.categoryLabel.text = app.primaryGenreName
+        cell.ratingLabel.text = "\(app.averageUserRating)"
         return cell
     }
 }
