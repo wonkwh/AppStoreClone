@@ -8,16 +8,6 @@
 
 import UIKit
 
-struct SearchResultList: Decodable {
-    let resultCount: Int
-    let results: [SearchResult]
-}
-
-struct SearchResult: Decodable {
-    let trackName: String
-    let primaryGenreName: String
-}
-
 class AppSearchController: UICollectionViewController {
 
     private var appSearchResults = [SearchResult]()
@@ -27,7 +17,19 @@ class AppSearchController: UICollectionViewController {
         self.collectionView.backgroundColor = .systemBackground
 
         self.collectionView.register(cellType: SearchListCell.self)
-        fetchItunesSearchApp("facebook")
+
+        Service.shared.fetchItunesSearchApp(keyword: "facebook") { (results, error) in
+
+            if let error = error {
+                dump(error)
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.appSearchResults = results
+                self.collectionView.reloadData()
+            }
+        }
     }
 
     init() {
@@ -36,29 +38,6 @@ class AppSearchController: UICollectionViewController {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func fetchItunesSearchApp(_ keyword: String) {
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(keyword)&entity=software") else {
-            return
-        }
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("fetch error:", error)
-            }
-
-            guard let data = data  else { return }
-            do {
-                let results = try JSONDecoder().decode(SearchResultList.self, from: data)
-                self.appSearchResults = results.results
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            } catch let jsonError {
-                print("error:", jsonError)
-            }
-        }.resume()
     }
 }
 
@@ -70,8 +49,10 @@ extension AppSearchController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
-        cell.nameLabel.text = appSearchResults[indexPath.row].trackName
-        cell.categoryLabel.text = appSearchResults[indexPath.row].primaryGenreName
+        let app = appSearchResults[indexPath.row]
+        cell.nameLabel.text = app.trackName
+        cell.categoryLabel.text = app.primaryGenreName
+        cell.ratingLabel.text = "\(app.averageUserRating)"
         return cell
     }
 }
