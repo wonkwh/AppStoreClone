@@ -8,10 +8,20 @@
 
 import UIKit
 import Nuke
+import DiffableDataSources
 
 class AppSearchController: UICollectionViewController {
 
-    private var appSearchResults = [SearchResult]()
+    enum Section {
+        case main
+    }
+
+    lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
+        self.populate(cell, data: searchResult)
+        return cell
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +30,12 @@ class AppSearchController: UICollectionViewController {
         self.collectionView.register(cellType: SearchListCell.self)
 
         Service.shared.fetchItunesSearchApp(keyword: "facebook") { (results, error) in
-
             if let error = error {
                 dump(error)
                 return
             }
-
             DispatchQueue.main.async {
-                self.appSearchResults = results
-                self.collectionView.reloadData()
+                self.setup(dataSource: results)
             }
         }
     }
@@ -43,37 +50,38 @@ class AppSearchController: UICollectionViewController {
 }
 
 // MARK: - datasource
+
 extension AppSearchController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return appSearchResults.count
+    func setup(dataSource: [SearchResult]) {
+        var snapshot = DiffableDataSourceSnapshot<Section, SearchResult>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(dataSource)
+        self.dataSource.apply(snapshot)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
-        let app = appSearchResults[indexPath.row]
-        if let url = URL(string: app.artworkUrl60),
-            let screenshot1 = URL(string: app.screenshotUrls[0]) {
+    func populate(_ cell:SearchListCell , data: SearchResult) {
+        if let url = URL(string: data.artworkUrl60),
+            let screenshot1 = URL(string: data.screenshotUrls[0]) {
             Nuke.loadImage(with: url, into: cell.imageView)
             Nuke.loadImage(with: screenshot1, into: cell.screenshotImageView1)
         }
 
-        if app.screenshotUrls.count > 1 {
-            if let screenshot2 = URL(string: app.screenshotUrls[1]) {
+        if data.screenshotUrls.count > 1 {
+            if let screenshot2 = URL(string: data.screenshotUrls[1]) {
                 Nuke.loadImage(with: screenshot2, into: cell.screenshotImageView2)
             }
         }
 
-        if app.screenshotUrls.count > 2 {
-            if let screenshot3 = URL(string: app.screenshotUrls[2]) {
+        if data.screenshotUrls.count > 2 {
+            if let screenshot3 = URL(string: data.screenshotUrls[2]) {
                 Nuke.loadImage(with: screenshot3, into: cell.screenshotImageView3)
             }
         }
 
 
-        cell.nameLabel.text = app.trackName
-        cell.categoryLabel.text = app.primaryGenreName
-        cell.ratingLabel.text = "\(app.averageUserRating)"
-        return cell
+        cell.nameLabel.text = data.trackName
+        cell.categoryLabel.text = data.primaryGenreName
+        cell.ratingLabel.text = "\(data.averageUserRating)"
     }
 }
 

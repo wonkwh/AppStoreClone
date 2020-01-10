@@ -17,6 +17,7 @@
 		738A1EC023BF516700EBA4BB /* AppStoreCloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1EBF23BF516700EBA4BB /* AppStoreCloneTests.swift */; };
 		738A1ECB23BF516700EBA4BB /* AppStoreCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1ECA23BF516700EBA4BB /* AppStoreCloneUITests.swift */; };
 		738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1ED823BF529A00EBA4BB /* TapBarController.swift */; };
+		73B1A19323C892E1005FD44C /* DiffableDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 73B1A19223C892E1005FD44C /* DiffableDataSources */; };
 		73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234BD23C2123E000ED484 /* AppSearchController.swift */; };
 		73F234C023C216A6000ED484 /* SearchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234BF23C216A6000ED484 /* SearchListCell.swift */; };
 		73F234D023C21A8D000ED484 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234C223C21A8D000ED484 /* UILabel+.swift */; };
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B1A19323C892E1005FD44C /* DiffableDataSources in Frameworks */,
 				735D524923C76855004A96F7 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +268,7 @@
 			name = AppStoreClone;
 			packageProductDependencies = (
 				735D524823C76855004A96F7 /* Nuke */,
+				73B1A19223C892E1005FD44C /* DiffableDataSources */,
 			);
 			productName = AppStoreClone;
 			productReference = 738A1EA523BF516600EBA4BB /* AppStoreClone.app */;
@@ -341,6 +344,7 @@
 			mainGroup = 738A1E9C23BF516600EBA4BB;
 			packageReferences = (
 				735D524723C76855004A96F7 /* XCRemoteSwiftPackageReference "Nuke" */,
+				73B1A19123C892E1005FD44C /* XCRemoteSwiftPackageReference "DiffableDataSources" */,
 			);
 			productRefGroup = 738A1EA623BF516600EBA4BB /* Products */;
 			projectDirPath = "";
@@ -730,6 +734,14 @@
 				minimumVersion = 8.4.0;
 			};
 		};
+		73B1A19123C892E1005FD44C /* XCRemoteSwiftPackageReference "DiffableDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ra1028/DiffableDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -737,6 +749,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 735D524723C76855004A96F7 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
+		};
+		73B1A19223C892E1005FD44C /* DiffableDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 73B1A19123C892E1005FD44C /* XCRemoteSwiftPackageReference "DiffableDataSources" */;
+			productName = DiffableDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

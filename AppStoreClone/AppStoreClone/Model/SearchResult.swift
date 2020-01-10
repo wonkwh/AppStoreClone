@@ -13,7 +13,7 @@ struct SearchResultList: Decodable {
     let results: [SearchResult]
 }
 
-struct SearchResult: Decodable {
+struct SearchResult: Decodable, Hashable {
     let trackName: String
     let primaryGenreName: String
     let averageUserRating: Float
