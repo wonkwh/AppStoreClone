@@ -16,16 +16,22 @@ class AppSearchController: UICollectionViewController {
         case main
     }
 
+    private var allSearchResults = [SearchResult]()
     lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
         self.populate(cell, data: searchResult)
         return cell
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
+        //setup searchbar
+        let search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchResultsUpdater = self
+//        search.delegate = self
+        self.navigationItem.searchController = search
 
         self.collectionView.register(cellType: SearchListCell.self)
 
@@ -35,6 +41,7 @@ class AppSearchController: UICollectionViewController {
                 return
             }
             DispatchQueue.main.async {
+                self.allSearchResults = results
                 self.setup(dataSource: results)
             }
         }
@@ -99,3 +106,22 @@ extension AppSearchController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UISearchResultsUpdating
+extension AppSearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            search(filterText: text)
+        }
+        else {
+            setup(dataSource: allSearchResults)
+        }
+    }
+
+    func search(filterText: String) {
+        let filterd = allSearchResults.filter { (result) -> Bool in
+            return result.contains(filterText)
+        }
+
+        setup(dataSource: filterd)
+    }
+}
