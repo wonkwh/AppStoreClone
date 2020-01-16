@@ -26,16 +26,23 @@ class AppSearchController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
-        //setup searchbar
-        let search = UISearchController(searchResultsController: nil)
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchResultsUpdater = self
-//        search.delegate = self
-        self.navigationItem.searchController = search
-
         self.collectionView.register(cellType: SearchListCell.self)
 
-        Service.shared.fetchItunesSearchApp(keyword: "facebook") { (results, error) in
+        setupSearchBar()
+        fetchData(searchTerm: "facebook")
+    }
+
+    private func setupSearchBar() {
+        definesPresentationContext = true
+        let search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+
+    private func fetchData(searchTerm: String) {
+        Service.shared.fetchItunesSearchApp(keyword: searchTerm) { (results, error) in
             if let error = error {
                 dump(error)
                 return
@@ -90,6 +97,14 @@ extension AppSearchController {
         cell.categoryLabel.text = data.primaryGenreName
         cell.ratingLabel.text = "\(data.averageUserRating)"
     }
+
+    func search(filterText: String) {
+        let filterd = allSearchResults.filter { (result) -> Bool in
+            return result.contains(filterText)
+        }
+
+        setup(dataSource: filterd)
+    }
 }
 
 // MARK: - delegate
@@ -106,22 +121,9 @@ extension AppSearchController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension AppSearchController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        if let text = searchController.searchBar.text, !text.isEmpty {
-            search(filterText: text)
-        }
-        else {
-            setup(dataSource: allSearchResults)
-        }
-    }
-
-    func search(filterText: String) {
-        let filterd = allSearchResults.filter { (result) -> Bool in
-            return result.contains(filterText)
-        }
-
-        setup(dataSource: filterd)
+// MARK: - UISearchBarDelegate
+extension AppSearchController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        fetchData(searchTerm: searchText)
     }
 }
