@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7329008B23D0C7870015C4E4 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008A23D0C7870015C4E4 /* AppsController.swift */; };
+		7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */; };
+		7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */; };
 		735D524423C7628D004A96F7 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D524323C7628D004A96F7 /* SearchResult.swift */; };
 		735D524623C762AB004A96F7 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D524523C762AB004A96F7 /* SearchService.swift */; };
 		735D524923C76855004A96F7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 735D524823C76855004A96F7 /* Nuke */; };
@@ -55,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7329008A23D0C7870015C4E4 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
+		7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupCell.swift; sourceTree = "<group>"; };
+		7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		735D524323C7628D004A96F7 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		735D524523C762AB004A96F7 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		738A1EA523BF516600EBA4BB /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +214,8 @@
 		738A1EDC23BF5B1F00EBA4BB /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				73F234BD23C2123E000ED484 /* AppSearchController.swift */,
+				73F234BF23C216A6000ED484 /* SearchListCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -222,8 +230,9 @@
 		738A1EDE23BF5B2E00EBA4BB /* Apps */ = {
 			isa = PBXGroup;
 			children = (
-				73F234BD23C2123E000ED484 /* AppSearchController.swift */,
-				73F234BF23C216A6000ED484 /* SearchListCell.swift */,
+				7329008A23D0C7870015C4E4 /* AppsController.swift */,
+				7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */,
+				7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -390,14 +399,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				73F234D823C21A8D000ED484 /* UIView+Stackview.swift in Sources */,
+				7329008B23D0C7870015C4E4 /* AppsController.swift in Sources */,
 				73F234D323C21A8D000ED484 /* Date+.swift in Sources */,
 				735D524423C7628D004A96F7 /* SearchResult.swift in Sources */,
 				73F234D023C21A8D000ED484 /* UILabel+.swift in Sources */,
 				73F234DD23C21A8D000ED484 /* UITableView+.swift in Sources */,
 				73F234DF23C21AF2000ED484 /* ViewBuilder.swift in Sources */,
+				7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */,
 				738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */,
 				73F234D223C21A8D000ED484 /* UIViewController+.swift in Sources */,
 				73F234D123C21A8D000ED484 /* UIScreen+.swift in Sources */,
+				7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */,
 				73F234C023C216A6000ED484 /* SearchListCell.swift in Sources */,
 				738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */,
 				73F234D623C21A8D000ED484 /* UIDevice+.swift in Sources */,
