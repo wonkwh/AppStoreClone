@@ -13,10 +13,27 @@ struct SearchResultList: Decodable {
     let results: [SearchResult]
 }
 
-struct SearchResult: Decodable {
+struct SearchResult: Decodable, Hashable {
+    let identifier: UUID = UUID()
     let trackName: String
     let primaryGenreName: String
     let averageUserRating: Float
     let artworkUrl60: String
     let screenshotUrls: [String]
+
+    func hash(into hasher: inout Hasher) {
+        return hasher.combine(identifier)
+    }
+
+    static func == (lhs: SearchResult, rhs: SearchResult) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+
+    func contains(_ filter: String?) -> Bool {
+        guard let filterText = filter else {
+            return true
+        }
+        let lowcasedFilter = filterText.lowercased()
+        return trackName.lowercased().contains(lowcasedFilter)
+    }
 }

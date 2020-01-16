@@ -8,27 +8,59 @@
 
 import UIKit
 import Nuke
+import DiffableDataSources
 
 class AppSearchController: UICollectionViewController {
 
-    private var appSearchResults = [SearchResult]()
+    enum Section {
+        case main
+    }
+
+    private var allSearchResults = [SearchResult]()
+    lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
+        self.emptyStateLabel.isHidden = true
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
+        self.populate(cell, data: searchResult)
+        return cell
+    }
+
+    var timer: Timer?
+
+    lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "please enter the search term..."
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
-
         self.collectionView.register(cellType: SearchListCell.self)
+        self.collectionView.addSubview(emptyStateLabel)
+        emptyStateLabel.insect(by: .init(top: 100, left: 50, bottom: 0, right: 50))
+        setupSearchBar()
+        fetchData(searchTerm: "")
+    }
 
-        Service.shared.fetchItunesSearchApp(keyword: "facebook") { (results, error) in
+    private func setupSearchBar() {
+        definesPresentationContext = true
+        let search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
 
+    private func fetchData(searchTerm: String) {
+        Service.shared.fetchItunesSearchApp(keyword: searchTerm) { (results, error) in
             if let error = error {
                 dump(error)
                 return
             }
-
             DispatchQueue.main.async {
-                self.appSearchResults = results
-                self.collectionView.reloadData()
+                self.allSearchResults = results
+                self.setup(dataSource: results)
             }
         }
     }
@@ -43,37 +75,46 @@ class AppSearchController: UICollectionViewController {
 }
 
 // MARK: - datasource
+
 extension AppSearchController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return appSearchResults.count
+    func setup(dataSource: [SearchResult]) {
+        var snapshot = DiffableDataSourceSnapshot<Section, SearchResult>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(dataSource)
+        self.dataSource.apply(snapshot)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
-        let app = appSearchResults[indexPath.row]
-        if let url = URL(string: app.artworkUrl60),
-            let screenshot1 = URL(string: app.screenshotUrls[0]) {
+    func populate(_ cell:SearchListCell , data: SearchResult) {
+        if let url = URL(string: data.artworkUrl60),
+            let screenshot1 = URL(string: data.screenshotUrls[0]) {
             Nuke.loadImage(with: url, into: cell.imageView)
             Nuke.loadImage(with: screenshot1, into: cell.screenshotImageView1)
         }
 
-        if app.screenshotUrls.count > 1 {
-            if let screenshot2 = URL(string: app.screenshotUrls[1]) {
+        if data.screenshotUrls.count > 1 {
+            if let screenshot2 = URL(string: data.screenshotUrls[1]) {
                 Nuke.loadImage(with: screenshot2, into: cell.screenshotImageView2)
             }
         }
 
-        if app.screenshotUrls.count > 2 {
-            if let screenshot3 = URL(string: app.screenshotUrls[2]) {
+        if data.screenshotUrls.count > 2 {
+            if let screenshot3 = URL(string: data.screenshotUrls[2]) {
                 Nuke.loadImage(with: screenshot3, into: cell.screenshotImageView3)
             }
         }
 
 
-        cell.nameLabel.text = app.trackName
-        cell.categoryLabel.text = app.primaryGenreName
-        cell.ratingLabel.text = "\(app.averageUserRating)"
-        return cell
+        cell.nameLabel.text = data.trackName
+        cell.categoryLabel.text = data.primaryGenreName
+        cell.ratingLabel.text = "\(data.averageUserRating)"
+    }
+
+    func search(filterText: String) {
+        let filterd = allSearchResults.filter { (result) -> Bool in
+            return result.contains(filterText)
+        }
+
+        setup(dataSource: filterd)
     }
 }
 
@@ -91,3 +132,16 @@ extension AppSearchController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - UISearchBarDelegate
+extension AppSearchController: UISearchBarDelegate {
+
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        // some delay before perfoming the search
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.fetchData(searchTerm: searchText)
+        })
+    }
+}
