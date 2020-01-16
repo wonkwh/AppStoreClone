@@ -152,7 +152,9 @@ public extension UIView {
         leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: insect.left).isActive = true
         trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -insect.right).isActive = true
         topAnchor.constraint(equalTo: superview.topAnchor, constant: insect.top).isActive = true
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -insect.bottom).isActive = true
+        if insect.bottom != 0 {
+            bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -insect.bottom).isActive = true
+        }
     }
 
     func anchorSuperview(top: CGFloat? = nil, leading: CGFloat? = nil,

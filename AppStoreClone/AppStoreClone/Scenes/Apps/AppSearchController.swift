@@ -18,18 +18,29 @@ class AppSearchController: UICollectionViewController {
 
     private var allSearchResults = [SearchResult]()
     lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
+        self.emptyStateLabel.isHidden = true
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
         self.populate(cell, data: searchResult)
         return cell
     }
 
+    var timer: Timer?
+
+    lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "please enter the search term..."
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .systemBackground
         self.collectionView.register(cellType: SearchListCell.self)
-
+        self.collectionView.addSubview(emptyStateLabel)
+        emptyStateLabel.insect(by: .init(top: 100, left: 50, bottom: 0, right: 50))
         setupSearchBar()
-        fetchData(searchTerm: "facebook")
+        fetchData(searchTerm: "")
     }
 
     private func setupSearchBar() {
@@ -123,7 +134,14 @@ extension AppSearchController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UISearchBarDelegate
 extension AppSearchController: UISearchBarDelegate {
+
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        fetchData(searchTerm: searchText)
+
+        // some delay before perfoming the search
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.fetchData(searchTerm: searchText)
+        })
     }
 }
