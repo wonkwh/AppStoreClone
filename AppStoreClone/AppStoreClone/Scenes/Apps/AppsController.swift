@@ -12,7 +12,8 @@ class AppsController: UIViewController {
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = .init(width: self.view.frame.width, height: 250)
+        layout.itemSize = .init(width: self.view.frame.width, height: 300)
+        layout.sectionInset = .init(top: 12, left: 0, bottom: 0, right: 0)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .white
         view.register(cellType: AppGroupCell.self)

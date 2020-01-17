@@ -12,11 +12,13 @@ class AppsHorizontalController: UIViewController {
     lazy var sectionCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: self.view.frame.width - 40,
+        layout.itemSize = .init(width: self.view.frame.width - 48,
                                 height: 65)
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = .init(horizontal: 12, vertical: 16)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
-        view.backgroundColor = .random
+        view.backgroundColor = .white
         view.register(cellType: AppListCell.self)
         view.dataSource = self
         view.alwaysBounceHorizontal = true
@@ -39,28 +41,5 @@ extension AppsHorizontalController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AppListCell.self)
         return cell
-    }
-}
-
-class AppListCell: UICollectionViewCell, Reusable {
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "App Title"
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        return label
-    }()
-
-    override init(frame: CGRect) {
-        super.init(frame: .zero)
-        backgroundColor = .random
-
-        VStackView(spacing: 10) {
-            titleLabel
-            Spacer()
-        }
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

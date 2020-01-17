@@ -12,7 +12,7 @@ class AppGroupCell: UICollectionViewCell, Reusable {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "App Section Title"
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
         return label
     }()
 
@@ -21,9 +21,12 @@ class AppGroupCell: UICollectionViewCell, Reusable {
     override init(frame: CGRect) {
         super.init(frame: .zero)
 
-        let view = appsHorizontalController.view.debug()
+        let view = appsHorizontalController.view!
         VStackView(spacing: 10) {
-            titleLabel
+            HStackView {
+                Spacer().withWidth(16.0)
+                titleLabel
+            }
             view
         }
     }
