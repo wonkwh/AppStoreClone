@@ -30,5 +30,27 @@ class Service {
             }
         }.resume()
     }
+
+    func fetchItunesMusicApp(term: String = "IU", limit: Int = 20, _ completion: @escaping ([SearchMusicResult], Error?) -> ()) {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(term)&offset=0&limit=\(limit)") else {
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { (d,r,e) in
+            if let error = e {
+                completion([], error)
+            }
+
+            guard let data = d else { return }
+
+            do {
+                let results = try JSONDecoder().decode(SearchMusicResultList.self, from: data)
+                completion(results.results, nil)
+            } catch let jsonError {
+                completion([], jsonError)
+            }
+        }.resume()
+    }
+
 }
 

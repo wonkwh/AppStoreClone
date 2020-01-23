@@ -11,6 +11,8 @@
 		7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */; };
 		7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */; };
 		7329009123D1D78A0015C4E4 /* AppListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329009023D1D78A0015C4E4 /* AppListCell.swift */; };
+		732900CC23D9C2AC0015C4E4 /* MusicListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732900CB23D9C2AC0015C4E4 /* MusicListController.swift */; };
+		732900CE23D9C31B0015C4E4 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732900CD23D9C31B0015C4E4 /* TrackCell.swift */; };
 		735D524423C7628D004A96F7 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D524323C7628D004A96F7 /* SearchResult.swift */; };
 		735D524623C762AB004A96F7 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D524523C762AB004A96F7 /* SearchService.swift */; };
 		735D524923C76855004A96F7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 735D524823C76855004A96F7 /* Nuke */; };
@@ -63,6 +65,8 @@
 		7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupCell.swift; sourceTree = "<group>"; };
 		7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		7329009023D1D78A0015C4E4 /* AppListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListCell.swift; sourceTree = "<group>"; };
+		732900CB23D9C2AC0015C4E4 /* MusicListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListController.swift; sourceTree = "<group>"; };
+		732900CD23D9C31B0015C4E4 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		735D524323C7628D004A96F7 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		735D524523C762AB004A96F7 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		738A1EA523BF516600EBA4BB /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		732900CA23D9C2850015C4E4 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				732900CB23D9C2AC0015C4E4 /* MusicListController.swift */,
+				732900CD23D9C31B0015C4E4 /* TrackCell.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		735D524123C7626A004A96F7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +219,7 @@
 		738A1EDB23BF5B1400EBA4BB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				732900CA23D9C2850015C4E4 /* Music */,
 				738A1EDE23BF5B2E00EBA4BB /* Apps */,
 				738A1EDD23BF5B2800EBA4BB /* Today */,
 				738A1EDC23BF5B1F00EBA4BB /* Search */,
@@ -408,9 +422,11 @@
 				735D524423C7628D004A96F7 /* SearchResult.swift in Sources */,
 				73F234D023C21A8D000ED484 /* UILabel+.swift in Sources */,
 				73F234DD23C21A8D000ED484 /* UITableView+.swift in Sources */,
+				732900CC23D9C2AC0015C4E4 /* MusicListController.swift in Sources */,
 				73F234DF23C21AF2000ED484 /* ViewBuilder.swift in Sources */,
 				7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */,
 				738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */,
+				732900CE23D9C31B0015C4E4 /* TrackCell.swift in Sources */,
 				73F234D223C21A8D000ED484 /* UIViewController+.swift in Sources */,
 				73F234D123C21A8D000ED484 /* UIScreen+.swift in Sources */,
 				7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */,
