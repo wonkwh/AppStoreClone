@@ -31,8 +31,8 @@ class Service {
         }.resume()
     }
 
-    func fetchItunesMusicApp(term: String = "IU", limit: Int = 20, _ completion: @escaping ([SearchMusicResult], Error?) -> ()) {
-        guard let url = URL(string: "https://itunes.apple.com/search?term=\(term)&offset=0&limit=\(limit)") else {
+    func fetchItunesMusicApp(term: String = "IU", offset: Int = 0, limit: Int = 20, _ completion: @escaping ([SearchMusicResult], Error?) -> ()) {
+        guard let url = URL(string: "https://itunes.apple.com/search?term=\(term)&offset=\(offset)&limit=\(limit)") else {
             return
         }
 

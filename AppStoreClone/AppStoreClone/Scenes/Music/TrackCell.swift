@@ -10,17 +10,16 @@ import UIKit
 
 class TrackCell: UICollectionViewCell, Reusable {
 
-    let imageView: UIImageView = {
+    let albumCoverImageView: UIImageView = {
         let view = UIImageView()
         view.withSize(64)
         view.setCorner(12)
         return view
     }()
 
-    let nameLabel: UILabel = {
+    let trackNameLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.boldSystemFont(ofSize: 15)
-        view.text = "The Way I Loved You"
         return view
     }()
 
@@ -36,9 +35,9 @@ class TrackCell: UICollectionViewCell, Reusable {
         self.backgroundColor = .systemBackground
 
         contentView.HStackView(alignment: .center, spacing: 12.0) {
-            imageView
+            albumCoverImageView
             VStackView() {
-                nameLabel
+                trackNameLabel
                 subtitleLabel
             }
             Spacer()

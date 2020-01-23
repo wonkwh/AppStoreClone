@@ -49,6 +49,8 @@ struct SearchMusicResult: Decodable, Hashable {
     let trackName: String
     let artistName: String
     let collectionCensoredName: String
+    let primaryGenreName: String
+    let releaseDate: String
     let artworkUrl60: String
 
     func hash(into hasher: inout Hasher) {

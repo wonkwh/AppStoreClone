@@ -16,10 +16,15 @@ class MusicListController: UICollectionViewController {
         case main
     }
 
-    private var allSearchResults = [SearchMusicResult]()
+    private var allTrackResults = [SearchMusicResult]()
     lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchMusicResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: TrackCell.self)
         self.populate(cell, data: searchResult)
+
+        //pagination
+        if indexPath.item == self.allTrackResults.count - 1 {
+            self.fetchData(searchTerm: "IU", offset: self.allTrackResults.count)
+        }
         return cell
     }
 
@@ -30,16 +35,16 @@ class MusicListController: UICollectionViewController {
         fetchData(searchTerm: "IU")
     }
 
-    private func fetchData(searchTerm: String) {
-        Service.shared.fetchItunesMusicApp { (results, error) in
+    private func fetchData(searchTerm: String, offset: Int = 0) {
+        Service.shared.fetchItunesMusicApp(term: searchTerm, offset: offset) { (results, error) in
             if let error = error {
                 dump(error)
                 return
             }
 
             DispatchQueue.main.async {
-                self.allSearchResults = results
-                self.setup(dataSource: results)
+                self.allTrackResults += results
+                self.setup(dataSource: self.allTrackResults)
             }
         }
     }
@@ -66,11 +71,12 @@ extension MusicListController {
     func populate(_ cell:TrackCell , data: SearchMusicResult) {
 
         if let url = URL(string: data.artworkUrl60) {
-            Nuke.loadImage(with: url, into: cell.imageView)
+            Nuke.loadImage(with: url, into: cell.albumCoverImageView)
         }
 
-        cell.nameLabel.text = data.artistName
-        cell.subtitleLabel.text = "\(data.trackName) - \(data.collectionCensoredName)"
+        cell.trackNameLabel.text = data.trackName
+        let releaseYear = data.releaseDate.components(separatedBy: "-").first
+        cell.subtitleLabel.text = "\(data.artistName) - \(data.collectionCensoredName) - \(releaseYear ?? "") - \(data.primaryGenreName)"
     }
 }
 
