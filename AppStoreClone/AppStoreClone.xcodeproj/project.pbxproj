@@ -39,6 +39,8 @@
 		73F234DC23C21A8D000ED484 /* FaceAware in Resources */ = {isa = PBXBuildFile; fileRef = 73F234CE23C21A8D000ED484 /* FaceAware */; };
 		73F234DD23C21A8D000ED484 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234CF23C21A8D000ED484 /* UITableView+.swift */; };
 		73F234DF23C21AF2000ED484 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234DE23C21AF2000ED484 /* ViewBuilder.swift */; };
+		890219AB2565676500DCACD7 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */; };
+		890219B02565680B00DCACD7 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		73F234CE23C21A8D000ED484 /* FaceAware */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FaceAware; sourceTree = "<group>"; };
 		73F234CF23C21A8D000ED484 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		73F234DE23C21AF2000ED484 /* ViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
+		890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
+		890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 				7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */,
 				7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */,
 				7329009023D1D78A0015C4E4 /* AppListCell.swift */,
+				890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */,
+				890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 			files = (
 				73F234D823C21A8D000ED484 /* UIView+Stackview.swift in Sources */,
 				7329009123D1D78A0015C4E4 /* AppListCell.swift in Sources */,
+				890219AB2565676500DCACD7 /* AppsHeaderHorizontalController.swift in Sources */,
 				7329008B23D0C7870015C4E4 /* AppsController.swift in Sources */,
 				73F234D323C21A8D000ED484 /* Date+.swift in Sources */,
 				735D524423C7628D004A96F7 /* SearchResult.swift in Sources */,
@@ -413,6 +420,7 @@
 				738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */,
 				73F234D223C21A8D000ED484 /* UIViewController+.swift in Sources */,
 				73F234D123C21A8D000ED484 /* UIScreen+.swift in Sources */,
+				890219B02565680B00DCACD7 /* AppsHeaderCell.swift in Sources */,
 				7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */,
 				73F234C023C216A6000ED484 /* SearchListCell.swift in Sources */,
 				738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */,

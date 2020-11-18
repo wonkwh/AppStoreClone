@@ -9,6 +9,8 @@
 import UIKit
 
 class AppsController: UIViewController {
+    let headerId = "AppsPageHeaderId"
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -16,7 +18,9 @@ class AppsController: UIViewController {
         layout.sectionInset = .init(top: 12, left: 0, bottom: 0, right: 0)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .white
+        
         view.register(cellType: AppGroupCell.self)
+        view.register(AppsPageHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         view.dataSource = self
         view.alwaysBounceVertical = true
         return view
@@ -31,6 +35,11 @@ class AppsController: UIViewController {
 
 // MARK: -
 extension AppsController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        return header
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }

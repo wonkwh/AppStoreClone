@@ -14,7 +14,7 @@ struct SearchResultList: Decodable {
 }
 
 struct SearchResult: Decodable, Hashable {
-    let identifier: UUID = UUID()
+    var identifier: UUID = UUID()
     let trackName: String
     let primaryGenreName: String
     let averageUserRating: Float
