@@ -15,6 +15,7 @@ class AppsController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = .init(width: self.view.frame.width, height: 300)
+        layout.headerReferenceSize = .init(width: self.view.frame.width, height: 300)
         layout.sectionInset = .init(top: 12, left: 0, bottom: 0, right: 0)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .white
@@ -33,7 +34,7 @@ class AppsController: UIViewController {
     }
 }
 
-// MARK: -
+// MARK: - UICollectionViewDataSource
 extension AppsController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)

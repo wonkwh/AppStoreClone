@@ -20,7 +20,7 @@ class AppsHeaderCell: UICollectionViewCell, Reusable {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "app title looks great"
+        label.text = "Keeping up with friends is faster than ever"
         label.font = UIFont.systemFont(ofSize: 24)
         label.numberOfLines = 2
         return label
@@ -28,18 +28,31 @@ class AppsHeaderCell: UICollectionViewCell, Reusable {
 
     let imageView: UIImageView = {
         let view = UIImageView()
+        view.backgroundColor = .red
         view.setCorner(8)
         return view
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        VStackView(alignment: .center, spacing: 12) {
-            companyLabel
-            titleLabel
+        backgroundColor = UIColor.random
+        
+        let stackview = UIStackView(arrangedSubviews: [
+            companyLabel,
+            titleLabel,
             imageView.debug()
-        }.withMargins(.init(top: 16, left: 0, bottom: 0, right: 0))
+        ])
+        
+        stackview.alignment = .fill
+        stackview.spacing = 12
+        stackview.axis = .vertical
+        addSubview(stackview)
+        //stackview.withSize(16)
+
+//        VStackView(spacing: 12) {
+//            companyLabel
+//            titleLabel
+//        }.padTop(16)
     }
     
     required init?(coder aDecoder: NSCoder) {
