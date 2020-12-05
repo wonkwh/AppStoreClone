@@ -46,7 +46,7 @@ class AppListCell: UICollectionViewCell, Reusable {
         super.init(frame: .zero)
 
         HStackView(alignment: .center, spacing: 16) {
-            imageView.debug()
+            imageView
             VStackView(spacing: 10) {
                 titleLabel
                 campanyLabel

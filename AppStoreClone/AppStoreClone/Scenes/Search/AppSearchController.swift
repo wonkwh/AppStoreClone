@@ -7,121 +7,89 @@
 //
 
 import UIKit
-import Nuke
-import DiffableDataSources
 
 class AppSearchController: UICollectionViewController {
 
-    enum Section {
-        case main
-    }
-
-    private var allSearchResults = [SearchResult]()
-    lazy var dataSource = CollectionViewDiffableDataSource<Section, SearchResult>(collectionView: collectionView) { (collectionView, indexPath, searchResult) in
-        self.emptyStateLabel.isHidden = true
-        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
-        self.populate(cell, data: searchResult)
-        return cell
-    }
-
-    var timer: Timer?
-
-    lazy var emptyStateLabel: UILabel = {
+    fileprivate let cellId = "id1234"
+    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    
+    fileprivate let enterSearchTermLabel: UILabel = {
         let label = UILabel()
-        label.text = "please enter the search term..."
+        label.text = "Please enter search term above..."
+        label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.backgroundColor = .systemBackground
-        self.collectionView.register(cellType: SearchListCell.self)
-        self.collectionView.addSubview(emptyStateLabel)
-        emptyStateLabel.insect(by: .init(top: 100, left: 50, bottom: 0, right: 50))
+        
+        collectionView.backgroundColor = .white
+        collectionView.register(cellType: SearchListCell.self)
+        collectionView.addSubview(enterSearchTermLabel)
+//        enterSearchTermLabel.fillSuperview(padding: .init(top: 100, left: 50, bottom: 0, right: 50))
+        
         setupSearchBar()
-        fetchData(searchTerm: "")
     }
-
-    private func setupSearchBar() {
+    
+    fileprivate func setupSearchBar() {
         definesPresentationContext = true
-        let search = UISearchController(searchResultsController: nil)
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.delegate = self
-        self.navigationItem.searchController = search
-        self.navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
     }
-
-    private func fetchData(searchTerm: String) {
-        Service.shared.fetchItunesSearchApp(keyword: searchTerm) { (results, error) in
-            if let error = error {
-                dump(error)
+    
+    var timer: Timer?
+    fileprivate var appResults = [SearchResult]()
+    
+    fileprivate func fetchITunesApps() {
+        Service.shared.fetchItunesSearchApp(keyword: "Twitter") { (results, err) in
+            
+            if let err = err {
+                print("Failed to fetch apps:", err)
                 return
             }
+            
+            self.appResults = results
             DispatchQueue.main.async {
-                self.allSearchResults = results
-                self.setup(dataSource: results)
+                self.collectionView.reloadData()
             }
         }
     }
-
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        enterSearchTermLabel.isHidden = appResults.count != 0
+        return appResults.count
     }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchListCell.self)
+        cell.appResult = appResults[indexPath.item]
+        return cell
     }
+    
 }
 
-// MARK: - datasource
-
-extension AppSearchController {
-    func setup(dataSource: [SearchResult]) {
-        var snapshot = DiffableDataSourceSnapshot<Section, SearchResult>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(dataSource)
-        self.dataSource.apply(snapshot)
-    }
-
-    func populate(_ cell:SearchListCell , data: SearchResult) {
-        if let url = URL(string: data.artworkUrl60),
-            let screenshot1 = URL(string: data.screenshotUrls[0]) {
-            Nuke.loadImage(with: url, into: cell.imageView)
-            Nuke.loadImage(with: screenshot1, into: cell.screenshotImageView1)
-        }
-
-        if data.screenshotUrls.count > 1 {
-            if let screenshot2 = URL(string: data.screenshotUrls[1]) {
-                Nuke.loadImage(with: screenshot2, into: cell.screenshotImageView2)
+// MARK: - UISearch
+extension AppSearchController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        
+        // introduce some delay before performing the search
+        // throttling the search
+        
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            Service.shared.fetchItunesSearchApp(keyword: searchText) { (results, errir) in
+                self.appResults = results
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
-        }
-
-        if data.screenshotUrls.count > 2 {
-            if let screenshot3 = URL(string: data.screenshotUrls[2]) {
-                Nuke.loadImage(with: screenshot3, into: cell.screenshotImageView3)
-            }
-        }
-
-
-        cell.nameLabel.text = data.trackName
-        cell.categoryLabel.text = data.primaryGenreName
-        cell.ratingLabel.text = "\(data.averageUserRating)"
-    }
-
-    func search(filterText: String) {
-        let filterd = allSearchResults.filter { (result) -> Bool in
-            return result.contains(filterText)
-        }
-
-        setup(dataSource: filterd)
-    }
-}
-
-// MARK: - delegate
-extension AppSearchController {
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        })
     }
 }
 
@@ -129,19 +97,5 @@ extension AppSearchController {
 extension AppSearchController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 350)
-    }
-}
-
-// MARK: - UISearchBarDelegate
-extension AppSearchController: UISearchBarDelegate {
-
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        // some delay before perfoming the search
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
-            self.fetchData(searchTerm: searchText)
-        })
     }
 }

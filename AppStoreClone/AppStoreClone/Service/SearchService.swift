@@ -19,6 +19,7 @@ class Service {
 
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
+                print("Failed to fetch apps:", error)
                 completion([], error)
             }
 
@@ -27,6 +28,7 @@ class Service {
                 let results = try JSONDecoder().decode(SearchResultList.self, from: data)
                 completion(results.results, nil)
             } catch let jsonError {
+                print("Failed to decode json:", jsonError)
                 completion([], jsonError)
             }
         }.resume()
