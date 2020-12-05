@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 class AppsHorizontalController: UIViewController {
     lazy var sectionCollectionView: UICollectionView = {
@@ -25,6 +26,8 @@ class AppsHorizontalController: UIViewController {
         return view
     }()
 
+    var appGroup: AppGroup?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,11 +38,18 @@ class AppsHorizontalController: UIViewController {
 
 extension AppsHorizontalController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return appGroup?.feed.results.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AppListCell.self)
+        let app = appGroup?.feed.results[indexPath.item]
+        cell.titleLabel.text = app?.name
+        cell.campanyLabel.text = app?.artistName
+        if let url = URL(string: app?.artworkUrl100 ?? "") {
+            Nuke.loadImage(with: url, into: cell.imageView)
+        }
+
         return cell
     }
 }

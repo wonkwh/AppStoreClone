@@ -12,7 +12,7 @@ class AppGroupCell: UICollectionViewCell, Reusable {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "App Section Title"
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.font = .boldSystemFont(ofSize: 30)
         return label
     }()
 
