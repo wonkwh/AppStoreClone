@@ -11,14 +11,15 @@ import Nuke
 
 class AppsHorizontalController: UIViewController {
     lazy var sectionCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = SnappingLayout()
+        layout.scrollDirection = .horizontal
         layout.scrollDirection = .horizontal
         layout.itemSize = .init(width: self.view.frame.width - 48,
                                 height: 65)
         layout.minimumLineSpacing = 10
         layout.sectionInset = .init(horizontal: 12, vertical: 16)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
+        view.decelerationRate = .fast
         view.backgroundColor = .white
         view.register(cellType: AppListCell.self)
         view.dataSource = self

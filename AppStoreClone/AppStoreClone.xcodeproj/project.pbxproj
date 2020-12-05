@@ -41,6 +41,8 @@
 		890219AB2565676500DCACD7 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */; };
 		890219B02565680B00DCACD7 /* AppsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */; };
 		89350409256A98AD00B0ADE0 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89350408256A98AD00B0ADE0 /* AppGroup.swift */; };
+		89F81C88257B65AC0074E59C /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C87257B65AC0074E59C /* SnappingLayout.swift */; };
+		89F81C8D257B660C0074E59C /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
 		890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderCell.swift; sourceTree = "<group>"; };
 		89350408256A98AD00B0ADE0 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		89F81C87257B65AC0074E59C /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
+		89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,8 @@
 				7329009023D1D78A0015C4E4 /* AppListCell.swift */,
 				890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */,
 				890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */,
+				89F81C87257B65AC0074E59C /* SnappingLayout.swift */,
+				89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -429,11 +435,13 @@
 				73F234D423C21A8D000ED484 /* UIImage+.swift in Sources */,
 				73F234DA23C21A8D000ED484 /* String+.swift in Sources */,
 				738A1EA923BF516600EBA4BB /* AppDelegate.swift in Sources */,
+				89F81C88257B65AC0074E59C /* SnappingLayout.swift in Sources */,
 				73F234D723C21A8D000ED484 /* UIStackView+.swift in Sources */,
 				73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */,
 				735D524623C762AB004A96F7 /* SearchService.swift in Sources */,
 				73F234D523C21A8D000ED484 /* CALayer+.swift in Sources */,
 				73F234D923C21A8D000ED484 /* UIColor+.swift in Sources */,
+				89F81C8D257B660C0074E59C /* HorizontalSnappingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
