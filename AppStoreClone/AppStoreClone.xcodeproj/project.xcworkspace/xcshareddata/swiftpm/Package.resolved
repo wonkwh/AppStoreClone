@@ -2,24 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "DiffableDataSources",
-        "repositoryURL": "git@github.com:ra1028/DiffableDataSources.git",
-        "state": {
-          "branch": null,
-          "revision": "1d6674cf60dc56d3ea9575280e3819fad8b4dd1e",
-          "version": "0.3.0"
-        }
-      },
-      {
-        "package": "DifferenceKit",
-        "repositoryURL": "https://github.com/ra1028/DifferenceKit.git",
-        "state": {
-          "branch": null,
-          "revision": "bf0488b4683fbe113e8db9cf4dcf0d265ce39cfa",
-          "version": "1.1.4"
-        }
-      },
-      {
         "package": "Nuke",
         "repositoryURL": "git@github.com:kean/Nuke.git",
         "state": {
