@@ -1,9 +1,6 @@
 //
-//  PreviewCell.swift
-//  AppStoreClone
-//
-//  Created by wonkwh on 2020/01/19.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit

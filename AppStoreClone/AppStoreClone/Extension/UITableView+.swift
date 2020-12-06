@@ -1,9 +1,6 @@
 //
-//  UITableView+.swift
-//  DesignKit-iOS
-//
-//  Created by kwanghyun on 2019/11/19.
-//  Copyright © 2019 vingle. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit

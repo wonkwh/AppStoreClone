@@ -1,8 +1,6 @@
 //
-//  UIImageView+.swift
-//  AppStoreClone
-//
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import Nuke

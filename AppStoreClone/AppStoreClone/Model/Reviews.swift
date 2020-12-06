@@ -1,9 +1,6 @@
 //
-//  Reviews.swift
-//  AppStoreClone
-//
-//  Created by wonkwh on 2020/12/05.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import Foundation

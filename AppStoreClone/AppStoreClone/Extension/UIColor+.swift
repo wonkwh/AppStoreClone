@@ -1,9 +1,6 @@
 //
-//  UIColor+.swift
-//  DesignKit-iOS
-//
-//  Created by kwanghyun.won on 2019/11/27.
-//  Copyright © 2019 Vingle. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit

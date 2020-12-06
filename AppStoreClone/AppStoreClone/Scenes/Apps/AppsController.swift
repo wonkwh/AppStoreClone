@@ -1,9 +1,6 @@
 //
-//  AppsController.swift
-//  AppStoreClone
-//
-//  Created by kwanghyun.won` on 2020/01/17.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit

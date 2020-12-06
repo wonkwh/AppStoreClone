@@ -1,9 +1,6 @@
 //
-//  UIView+.swift
-//  Example
-//
-//  Created by kwanghyun.won on 2019/11/06.
-//  Copyright © 2019 vingle. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit

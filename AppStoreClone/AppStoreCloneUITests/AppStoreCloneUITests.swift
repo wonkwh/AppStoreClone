@@ -1,9 +1,6 @@
 //
-//  AppStoreCloneUITests.swift
-//  AppStoreCloneUITests
-//
-//  Created by ios_dev on 2020/01/03.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import XCTest

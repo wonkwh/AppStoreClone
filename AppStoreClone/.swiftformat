@@ -1,6 +1,7 @@
 # fileHeader
---header ignore
-
+#--header ignore
+--header "//\nCreated by kwanghyun.won \nCopyright © 2020 wonkwh. All rights reserved.\n//"
+"
 # indent
 --indent 4
 
