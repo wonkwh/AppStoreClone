@@ -43,6 +43,17 @@
 		89350409256A98AD00B0ADE0 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89350408256A98AD00B0ADE0 /* AppGroup.swift */; };
 		89F81C88257B65AC0074E59C /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C87257B65AC0074E59C /* SnappingLayout.swift */; };
 		89F81C8D257B660C0074E59C /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */; };
+		89F81C93257B69360074E59C /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C92257B69360074E59C /* Reviews.swift */; };
+		89F81C9B257B6A6C0074E59C /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81C9A257B6A6C0074E59C /* AppDetailController.swift */; };
+		89F81CB5257B6CD90074E59C /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CB1257B6CD90074E59C /* PreviewCell.swift */; };
+		89F81CB6257B6CD90074E59C /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CB2257B6CD90074E59C /* ReviewRowCell.swift */; };
+		89F81CB7257B6CD90074E59C /* AppDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CB3257B6CD90074E59C /* AppDetailCell.swift */; };
+		89F81CB8257B6CD90074E59C /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CB4257B6CD90074E59C /* ReviewCell.swift */; };
+		89F81CBD257B6D5B0074E59C /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CBC257B6D5B0074E59C /* UIImageView+.swift */; };
+		89F81CC2257B73300074E59C /* PreviewScreenshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CC1257B73300074E59C /* PreviewScreenshotsController.swift */; };
+		89F81CC7257B74930074E59C /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CC6257B74930074E59C /* ReviewsController.swift */; };
+		89F81CE1257CB3500074E59C /* WoodPeckeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; };
+		89F81CE2257CB3500074E59C /* WoodPeckeriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +72,20 @@
 			remoteInfo = AppStoreClone;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		89F81CE3257CB3500074E59C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				89F81CE2257CB3500074E59C /* WoodPeckeriOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7329008A23D0C7870015C4E4 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
@@ -104,6 +129,16 @@
 		89350408256A98AD00B0ADE0 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		89F81C87257B65AC0074E59C /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
 		89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
+		89F81C92257B69360074E59C /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
+		89F81C9A257B6A6C0074E59C /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		89F81CB1257B6CD90074E59C /* PreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
+		89F81CB2257B6CD90074E59C /* ReviewRowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
+		89F81CB3257B6CD90074E59C /* AppDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDetailCell.swift; sourceTree = "<group>"; };
+		89F81CB4257B6CD90074E59C /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		89F81CBC257B6D5B0074E59C /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		89F81CC1257B73300074E59C /* PreviewScreenshotsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshotsController.swift; sourceTree = "<group>"; };
+		89F81CC6257B74930074E59C /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
+		89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WoodPeckeriOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				735D524923C76855004A96F7 /* Nuke in Frameworks */,
+				89F81CE1257CB3500074E59C /* WoodPeckeriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +173,7 @@
 			children = (
 				735D524323C7628D004A96F7 /* SearchResult.swift */,
 				89350408256A98AD00B0ADE0 /* AppGroup.swift */,
+				89F81C92257B69360074E59C /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +193,7 @@
 				738A1EBE23BF516700EBA4BB /* AppStoreCloneTests */,
 				738A1EC923BF516700EBA4BB /* AppStoreCloneUITests */,
 				738A1EA623BF516600EBA4BB /* Products */,
+				89F81CE0257CB3500074E59C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -207,6 +245,7 @@
 		738A1EDA23BF543100EBA4BB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */,
 				738A1EB123BF516700EBA4BB /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -215,6 +254,7 @@
 		738A1EDB23BF5B1400EBA4BB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				89F81C91257B68EF0074E59C /* AppDetail */,
 				738A1EDE23BF5B2E00EBA4BB /* Apps */,
 				738A1EDD23BF5B2800EBA4BB /* Today */,
 				738A1EDC23BF5B1F00EBA4BB /* Search */,
@@ -241,12 +281,10 @@
 		738A1EDE23BF5B2E00EBA4BB /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				89F81CCB257C5E4E0074E59C /* View */,
 				7329008A23D0C7870015C4E4 /* AppsController.swift */,
-				7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */,
 				7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */,
-				7329009023D1D78A0015C4E4 /* AppListCell.swift */,
 				890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */,
-				890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */,
 				89F81C87257B65AC0074E59C /* SnappingLayout.swift */,
 				89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */,
 			);
@@ -271,8 +309,48 @@
 				73F234CD23C21A8D000ED484 /* UIView+.swift */,
 				73F234CA23C21A8D000ED484 /* UIView+Stackview.swift */,
 				73F234C423C21A8D000ED484 /* UIViewController+.swift */,
+				89F81CBC257B6D5B0074E59C /* UIImageView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		89F81C91257B68EF0074E59C /* AppDetail */ = {
+			isa = PBXGroup;
+			children = (
+				89F81CB0257B6CC80074E59C /* view */,
+				89F81C9A257B6A6C0074E59C /* AppDetailController.swift */,
+				89F81CC1257B73300074E59C /* PreviewScreenshotsController.swift */,
+				89F81CC6257B74930074E59C /* ReviewsController.swift */,
+			);
+			path = AppDetail;
+			sourceTree = "<group>";
+		};
+		89F81CB0257B6CC80074E59C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				89F81CB3257B6CD90074E59C /* AppDetailCell.swift */,
+				89F81CB1257B6CD90074E59C /* PreviewCell.swift */,
+				89F81CB4257B6CD90074E59C /* ReviewCell.swift */,
+				89F81CB2257B6CD90074E59C /* ReviewRowCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		89F81CCB257C5E4E0074E59C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */,
+				7329009023D1D78A0015C4E4 /* AppListCell.swift */,
+				890219AF2565680B00DCACD7 /* AppsHeaderCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89F81CE0257CB3500074E59C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +363,7 @@
 				738A1EA123BF516600EBA4BB /* Sources */,
 				738A1EA223BF516600EBA4BB /* Frameworks */,
 				738A1EA323BF516600EBA4BB /* Resources */,
+				89F81CE3257CB3500074E59C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,10 +491,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F81CBD257B6D5B0074E59C /* UIImageView+.swift in Sources */,
 				73F234D823C21A8D000ED484 /* UIView+Stackview.swift in Sources */,
 				7329009123D1D78A0015C4E4 /* AppListCell.swift in Sources */,
 				890219AB2565676500DCACD7 /* AppsHeaderHorizontalController.swift in Sources */,
+				89F81CB5257B6CD90074E59C /* PreviewCell.swift in Sources */,
 				89350409256A98AD00B0ADE0 /* AppGroup.swift in Sources */,
+				89F81CB7257B6CD90074E59C /* AppDetailCell.swift in Sources */,
 				7329008B23D0C7870015C4E4 /* AppsController.swift in Sources */,
 				73F234D323C21A8D000ED484 /* Date+.swift in Sources */,
 				735D524423C7628D004A96F7 /* SearchResult.swift in Sources */,
@@ -423,10 +505,14 @@
 				73F234DD23C21A8D000ED484 /* UITableView+.swift in Sources */,
 				73F234DF23C21AF2000ED484 /* ViewBuilder.swift in Sources */,
 				7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */,
+				89F81CB8257B6CD90074E59C /* ReviewCell.swift in Sources */,
 				738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */,
+				89F81C9B257B6A6C0074E59C /* AppDetailController.swift in Sources */,
+				89F81CB6257B6CD90074E59C /* ReviewRowCell.swift in Sources */,
 				73F234D223C21A8D000ED484 /* UIViewController+.swift in Sources */,
 				73F234D123C21A8D000ED484 /* UIScreen+.swift in Sources */,
 				890219B02565680B00DCACD7 /* AppsHeaderCell.swift in Sources */,
+				89F81CC7257B74930074E59C /* ReviewsController.swift in Sources */,
 				7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */,
 				73F234C023C216A6000ED484 /* SearchListCell.swift in Sources */,
 				738A1ED923BF529A00EBA4BB /* TapBarController.swift in Sources */,
@@ -435,10 +521,12 @@
 				73F234D423C21A8D000ED484 /* UIImage+.swift in Sources */,
 				73F234DA23C21A8D000ED484 /* String+.swift in Sources */,
 				738A1EA923BF516600EBA4BB /* AppDelegate.swift in Sources */,
+				89F81C93257B69360074E59C /* Reviews.swift in Sources */,
 				89F81C88257B65AC0074E59C /* SnappingLayout.swift in Sources */,
 				73F234D723C21A8D000ED484 /* UIStackView+.swift in Sources */,
 				73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */,
 				735D524623C762AB004A96F7 /* SearchService.swift in Sources */,
+				89F81CC2257B73300074E59C /* PreviewScreenshotsController.swift in Sources */,
 				73F234D523C21A8D000ED484 /* CALayer+.swift in Sources */,
 				73F234D923C21A8D000ED484 /* UIColor+.swift in Sources */,
 				89F81C8D257B660C0074E59C /* HorizontalSnappingController.swift in Sources */,
@@ -607,6 +695,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AppStoreClone/Resource",
+				);
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,6 +717,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/AppStoreClone/Resource",
+				);
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
