@@ -35,7 +35,6 @@
 		73F234D923C21A8D000ED484 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234CB23C21A8D000ED484 /* UIColor+.swift */; };
 		73F234DA23C21A8D000ED484 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234CC23C21A8D000ED484 /* String+.swift */; };
 		73F234DB23C21A8D000ED484 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234CD23C21A8D000ED484 /* UIView+.swift */; };
-		73F234DC23C21A8D000ED484 /* FaceAware in Resources */ = {isa = PBXBuildFile; fileRef = 73F234CE23C21A8D000ED484 /* FaceAware */; };
 		73F234DD23C21A8D000ED484 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234CF23C21A8D000ED484 /* UITableView+.swift */; };
 		73F234DF23C21AF2000ED484 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F234DE23C21AF2000ED484 /* ViewBuilder.swift */; };
 		890219AB2565676500DCACD7 /* AppsHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */; };
@@ -121,7 +120,6 @@
 		73F234CB23C21A8D000ED484 /* UIColor+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		73F234CC23C21A8D000ED484 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		73F234CD23C21A8D000ED484 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		73F234CE23C21A8D000ED484 /* FaceAware */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FaceAware; sourceTree = "<group>"; };
 		73F234CF23C21A8D000ED484 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		73F234DE23C21AF2000ED484 /* ViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
 		890219AA2565676500DCACD7 /* AppsHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderHorizontalController.swift; sourceTree = "<group>"; };
@@ -297,7 +295,6 @@
 				73F234C723C21A8D000ED484 /* CALayer+.swift */,
 				73F234DE23C21AF2000ED484 /* ViewBuilder.swift */,
 				73F234C523C21A8D000ED484 /* Date+.swift */,
-				73F234CE23C21A8D000ED484 /* FaceAware */,
 				73F234CC23C21A8D000ED484 /* String+.swift */,
 				73F234CB23C21A8D000ED484 /* UIColor+.swift */,
 				73F234C823C21A8D000ED484 /* UIDevice+.swift */,
@@ -361,6 +358,8 @@
 			buildConfigurationList = 738A1ECF23BF516700EBA4BB /* Build configuration list for PBXNativeTarget "AppStoreClone" */;
 			buildPhases = (
 				738A1EA123BF516600EBA4BB /* Sources */,
+				89F81CF0257CB7C60074E59C /* swiftformat */,
+				89F81CE6257CB5B80074E59C /* swiftlint */,
 				738A1EA223BF516600EBA4BB /* Frameworks */,
 				738A1EA323BF516600EBA4BB /* Resources */,
 				89F81CE3257CB3500074E59C /* Embed Frameworks */,
@@ -465,7 +464,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				738A1EB523BF516700EBA4BB /* LaunchScreen.storyboard in Resources */,
-				73F234DC23C21A8D000ED484 /* FaceAware in Resources */,
 				738A1EB223BF516700EBA4BB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +483,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89F81CE6257CB5B80074E59C /* swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n";
+		};
+		89F81CF0257CB7C60074E59C /* swiftformat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftformat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		738A1EA123BF516600EBA4BB /* Sources */ = {
