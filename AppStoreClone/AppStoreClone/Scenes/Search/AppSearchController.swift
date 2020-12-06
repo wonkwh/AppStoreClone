@@ -71,8 +71,6 @@ class AppSearchController: UICollectionViewController {
 
 extension AppSearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
-
         // introduce some delay before performing the search
         // throttling the search
 

@@ -13,6 +13,10 @@ public enum AnchorAxis: Int {
     case xy
 }
 
+public struct AnchoredConstraints {
+    public var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
+}
+
 public extension UIView {
     // MARK: - Frame
 
@@ -51,10 +55,6 @@ public extension UIView {
     }
 
     // MARK: - AutoLayout
-
-    struct AnchoredConstraints {
-        public var top, leading, bottom, trailing, width, height: NSLayoutConstraint?
-    }
 
     func fitIntoSuperview(
         usingConstraints: Bool = false,
@@ -210,58 +210,31 @@ public extension UIView {
     }
 
     @discardableResult
-    func anchor(top: NSLayoutYAxisAnchor? = nil,
-                leading: NSLayoutXAxisAnchor? = nil,
-                bottom: NSLayoutYAxisAnchor? = nil,
-                trailing: NSLayoutXAxisAnchor? = nil,
-                padding: UIEdgeInsets = .zero,
-                size: CGSize = .zero) -> AnchoredConstraints
-    {
+    func anchor(
+        top: NSLayoutYAxisAnchor?,
+        leading: NSLayoutXAxisAnchor?,
+        bottom: NSLayoutYAxisAnchor?,
+        trailing: NSLayoutXAxisAnchor?,
+        padding: UIEdgeInsets = .zero,
+        size: CGSize = .zero
+    ) -> AnchoredConstraints {
         translatesAutoresizingMaskIntoConstraints = false
-        guard let superview = superview else {
-            return AnchoredConstraints(
-                top: nil,
-                leading: nil,
-                bottom: nil,
-                trailing: nil,
-                width: nil,
-                height: nil
-            )
-        }
-
         var anchoredConstraints = AnchoredConstraints()
 
         if let top = top {
             anchoredConstraints.top = topAnchor.constraint(equalTo: top, constant: padding.top)
-        } else {
-            anchoredConstraints.top = topAnchor.constraint(equalTo: superview.topAnchor, constant: padding.top)
         }
 
         if let leading = leading {
             anchoredConstraints.leading = leadingAnchor.constraint(equalTo: leading, constant: padding.left)
-        } else {
-            anchoredConstraints.leading = leadingAnchor.constraint(
-                equalTo: superview.leadingAnchor,
-                constant: padding.left
-            )
         }
 
         if let bottom = bottom {
             anchoredConstraints.bottom = bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom)
-        } else {
-            anchoredConstraints.bottom = bottomAnchor.constraint(
-                equalTo: superview.bottomAnchor,
-                constant: -padding.bottom
-            )
         }
 
         if let trailing = trailing {
             anchoredConstraints.trailing = trailingAnchor.constraint(equalTo: trailing, constant: -padding.right)
-        } else {
-            anchoredConstraints.trailing = trailingAnchor.constraint(
-                equalTo: superview.trailingAnchor,
-                constant: -padding.right
-            )
         }
 
         if size.width != 0 {
@@ -279,7 +252,7 @@ public extension UIView {
             anchoredConstraints.trailing,
             anchoredConstraints.width,
             anchoredConstraints.height
-        ].compactMap { $0 }.forEach { $0?.isActive = true }
+        ].forEach { $0?.isActive = true }
 
         return anchoredConstraints
     }
