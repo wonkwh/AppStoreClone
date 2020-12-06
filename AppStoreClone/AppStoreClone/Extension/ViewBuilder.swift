@@ -9,7 +9,7 @@
 import UIKit
 
 @_functionBuilder
-public struct StackBuilder {
+public enum StackBuilder {
     public static func buildBlock(_ segments: UIView...) -> [UIView] {
         var views: [UIView] = []
         segments.forEach {

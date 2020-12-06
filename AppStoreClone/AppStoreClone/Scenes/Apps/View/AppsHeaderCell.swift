@@ -9,7 +9,6 @@
 import UIKit
 
 class AppsHeaderCell: UICollectionViewCell, Reusable {
-    
     let companyLabel: UILabel = {
         let label = UILabel()
         label.text = "Vingle"
@@ -36,29 +35,27 @@ class AppsHeaderCell: UICollectionViewCell, Reusable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.random
-        
+
         let stackview = UIStackView(arrangedSubviews: [
             companyLabel,
             titleLabel,
             imageView.debug()
         ])
-        
+
         stackview.alignment = .fill
         stackview.spacing = 12
         stackview.axis = .vertical
         addSubview(stackview)
-        //stackview.withSize(16)
+        // stackview.withSize(16)
 
 //        VStackView(spacing: 12) {
 //            companyLabel
 //            titleLabel
 //        }.padTop(16)
     }
-    
+
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
-    
 }
-
-

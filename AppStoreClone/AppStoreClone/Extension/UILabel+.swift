@@ -18,13 +18,19 @@ public extension UILabel {
             style.lineSpacing = lineHeight
             let range = NSRange(location: 0, length: attributeString.length)
             attributeString.addAttribute(.paragraphStyle, value: style, range: range)
-            self.attributedText = attributeString
+            attributedText = attributeString
         }
+    }
+
+    convenience init(text: String, font: UIFont, numberOfLines: Int = 1) {
+        self.init(frame: .zero)
+        self.text = text
+        self.font = font
+        self.numberOfLines = numberOfLines
     }
 }
 
 public extension UILabel {
-
     /// attribute text 앞뒤에 이미지를 추가한다.
     /// - Parameters:
     ///   - text: 추가 텍스트
@@ -41,12 +47,12 @@ public extension UILabel {
         lAttachment.image = image
 
         // 1pt = 1.32px
-        let lFontSize = round(self.font.pointSize * 1.32)
+        let lFontSize = round(font.pointSize * 1.32)
         let lRatio = image.size.width / image.size.height
 
         lAttachment.bounds = CGRect(
             x: 0,
-            y: ((self.font.capHeight - lFontSize) / 2).rounded(),
+            y: ((font.capHeight - lFontSize) / 2).rounded(),
             width: lRatio * lFontSize,
             height: lFontSize
         )
@@ -56,7 +62,7 @@ public extension UILabel {
         if imageBehindText {
             let lStrLabelText: NSMutableAttributedString
 
-            if keepPreviousText, let lCurrentAttributedString = self.attributedText {
+            if keepPreviousText, let lCurrentAttributedString = attributedText {
                 lStrLabelText = NSMutableAttributedString(attributedString: lCurrentAttributedString)
                 lStrLabelText.append(NSMutableAttributedString(string: text))
             } else {
@@ -64,11 +70,11 @@ public extension UILabel {
             }
 
             lStrLabelText.append(lAttachmentString)
-            self.attributedText = lStrLabelText
+            attributedText = lStrLabelText
         } else {
             let lStrLabelText: NSMutableAttributedString
 
-            if keepPreviousText, let lCurrentAttributedString = self.attributedText {
+            if keepPreviousText, let lCurrentAttributedString = attributedText {
                 lStrLabelText = NSMutableAttributedString(attributedString: lCurrentAttributedString)
                 lStrLabelText.append(NSMutableAttributedString(attributedString: lAttachmentString))
                 lStrLabelText.append(NSMutableAttributedString(string: text))
@@ -77,14 +83,14 @@ public extension UILabel {
                 lStrLabelText.append(NSMutableAttributedString(string: text))
             }
 
-            self.attributedText = lStrLabelText
+            attributedText = lStrLabelText
         }
     }
 
     /// image가 추가되어 있는 attriute text를 제거
     func removeImage() {
         let text = self.text
-        self.attributedText = nil
+        attributedText = nil
         self.text = text
     }
 }

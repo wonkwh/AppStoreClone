@@ -20,7 +20,6 @@ public extension Reusable {
 }
 
 public extension UITableView {
-    
     /// Reusable 프로토콜을 구현한 TableViewCell 의 register
     ///
     /// For Example:
@@ -32,7 +31,7 @@ public extension UITableView {
     func register<T: UITableViewCell>(cellType: T.Type) where T: Reusable {
         register(cellType.self, forCellReuseIdentifier: cellType.identifier)
     }
-    
+
     ///  Reusable 프로토콜을 구현한 TableViewCell 을 register후 reuse
     ///
     ///  For Example:
@@ -44,11 +43,12 @@ public extension UITableView {
     ///   - indexPath: IndexPath
     ///   - cellType: Reusable TableCell type
     func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath,
-                                                 cellType: T.Type = T.self) -> T where T: Reusable {
-        guard let cell = self.dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath) as? T else {
+                                                 cellType: T.Type = T.self) -> T where T: Reusable
+    {
+        guard let cell = dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath) as? T else {
             fatalError("Failed to dequeue a cell \(cellType.identifier) matching type \(cellType.self).")
         }
-        
+
         return cell
     }
 }
@@ -59,9 +59,9 @@ public extension UICollectionView {
     }
 
     func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath,
-                                                 cellType: T.Type = T.self) -> T where T: Reusable {
-
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath) as? T else {
+                                                      cellType: T.Type = T.self) -> T where T: Reusable
+    {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath) as? T else {
             fatalError("Failed to dequeue a cell \(cellType.identifier) matching type \(cellType.self).")
         }
 

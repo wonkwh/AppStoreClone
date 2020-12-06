@@ -33,6 +33,7 @@
 --maxwidth 130
 
 # Disabled rules
+# --disable wrapMultilineStatementBraces
 --disable redundantInit
 --disable void
 --disable redundantReturn 

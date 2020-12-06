@@ -86,7 +86,7 @@ public extension Date {
             }
             return now.seconds(from: self).description + "초 \(agoTextKey)"
         }
-        
+
         return ""
     }
 }

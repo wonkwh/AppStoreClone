@@ -9,8 +9,8 @@
 import UIKit
 
 // MARK: - Add/Remove Child View Controller
-public extension UIViewController {
 
+public extension UIViewController {
     func addChildController(_ childController: UIViewController) {
         addChild(childController)
         view.addSubview(childController.view)

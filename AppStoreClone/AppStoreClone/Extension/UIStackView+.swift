@@ -9,6 +9,7 @@
 import UIKit
 
 // MARK: - Layout
+
 public extension UIStackView {
     @discardableResult
     func withMargins(_ margins: UIEdgeInsets) -> UIStackView {
@@ -47,6 +48,7 @@ public extension UIStackView {
 }
 
 // MARK: - Builder
+
 public extension UIStackView {
     func distribution(justify: UIStackView.Distribution) -> UIStackView {
         distribution = justify
@@ -69,18 +71,18 @@ public extension UIStackView {
 }
 
 // MARK: - utility
+
 public extension UIStackView {
     func removeAllArrangedSubviews() {
-
         let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
             self.removeArrangedSubview(subview)
             return allSubviews + [subview]
         }
 
         // Deactivate all constraints
-        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap { $0.constraints })
 
         // Remove the views from self
-        removedSubviews.forEach({ $0.removeFromSuperview() })
+        removedSubviews.forEach { $0.removeFromSuperview() }
     }
 }

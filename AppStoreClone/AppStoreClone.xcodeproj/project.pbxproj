@@ -53,6 +53,8 @@
 		89F81CC7257B74930074E59C /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CC6257B74930074E59C /* ReviewsController.swift */; };
 		89F81CE1257CB3500074E59C /* WoodPeckeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; };
 		89F81CE2257CB3500074E59C /* WoodPeckeriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		89F81CFC257CBA7F0074E59C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 89F81CFA257CBA7F0074E59C /* .swiftlint.yml */; };
+		89F81CFD257CBA7F0074E59C /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 89F81CFB257CBA7F0074E59C /* .swiftformat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,8 @@
 		89F81CC1257B73300074E59C /* PreviewScreenshotsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewScreenshotsController.swift; sourceTree = "<group>"; };
 		89F81CC6257B74930074E59C /* ReviewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsController.swift; sourceTree = "<group>"; };
 		89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WoodPeckeriOS.framework; sourceTree = "<group>"; };
+		89F81CFA257CBA7F0074E59C /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		89F81CFB257CBA7F0074E59C /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,8 @@
 		738A1EDA23BF543100EBA4BB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				89F81CFB257CBA7F0074E59C /* .swiftformat */,
+				89F81CFA257CBA7F0074E59C /* .swiftlint.yml */,
 				89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */,
 				738A1EB123BF516700EBA4BB /* Assets.xcassets */,
 			);
@@ -358,8 +364,8 @@
 			buildConfigurationList = 738A1ECF23BF516700EBA4BB /* Build configuration list for PBXNativeTarget "AppStoreClone" */;
 			buildPhases = (
 				738A1EA123BF516600EBA4BB /* Sources */,
-				89F81CF0257CB7C60074E59C /* swiftformat */,
 				89F81CE6257CB5B80074E59C /* swiftlint */,
+				89F81CF0257CB7C60074E59C /* swiftformat */,
 				738A1EA223BF516600EBA4BB /* Frameworks */,
 				738A1EA323BF516600EBA4BB /* Resources */,
 				89F81CE3257CB3500074E59C /* Embed Frameworks */,
@@ -463,6 +469,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89F81CFD257CBA7F0074E59C /* .swiftformat in Resources */,
+				89F81CFC257CBA7F0074E59C /* .swiftlint.yml in Resources */,
 				738A1EB523BF516700EBA4BB /* LaunchScreen.storyboard in Resources */,
 				738A1EB223BF516700EBA4BB /* Assets.xcassets in Resources */,
 			);

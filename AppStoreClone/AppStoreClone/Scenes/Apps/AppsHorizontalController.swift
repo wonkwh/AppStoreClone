@@ -6,29 +6,27 @@
 //  Copyright © 2020 wonkwh. All rights reserved.
 //
 
-import UIKit
 import Nuke
+import UIKit
 
 class AppsHorizontalController: UIViewController {
     lazy var sectionCollectionView: UICollectionView = {
         let layout = SnappingLayout()
         layout.scrollDirection = .horizontal
-        layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: self.view.frame.width - 48,
-                                height: 65)
-        layout.minimumLineSpacing = 10
-        layout.sectionInset = .init(horizontal: 12, vertical: 16)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
         view.decelerationRate = .fast
         view.backgroundColor = .white
         view.register(cellType: AppListCell.self)
         view.dataSource = self
+        view.delegate = self
         view.alwaysBounceHorizontal = true
         return view
     }()
 
     var appGroup: AppGroup?
-    
+    var didSelectHandler: ((FeedResult) -> ())?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +34,8 @@ class AppsHorizontalController: UIViewController {
         sectionCollectionView.pinInSuperview()
     }
 }
+
+// MARK: - UICollectionViewDataSource
 
 extension AppsHorizontalController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -52,5 +52,45 @@ extension AppsHorizontalController: UICollectionViewDataSource {
         }
 
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension AppsHorizontalController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let app = appGroup?.feed.results[indexPath.item] {
+            didSelectHandler?(app)
+        }
+    }
+}
+
+let topBottomPadding: CGFloat = 12
+let lineSpacing: CGFloat = 10
+
+extension AppsHorizontalController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let height = (view.frame.height - 2 * topBottomPadding - 2 * lineSpacing) / 3
+        return .init(width: view.frame.width - 48, height: height)
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
+        return lineSpacing
+    }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
+        return .init(top: topBottomPadding, left: 0, bottom: topBottomPadding, right: 0)
     }
 }

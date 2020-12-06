@@ -8,17 +8,16 @@
 
 import UIKit
 
-extension UIColor {
-
-    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
+public extension UIColor {
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat) {
+        self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: 1)
     }
 
-    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
+    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+        self.init(red: r / 255, green: g / 255, blue: b / 255, alpha: a)
     }
 
-    public convenience init(hexString: String) {
+    convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var rgbValue: UInt64 = 0
         Scanner(string: hex).scanHexInt64(&rgbValue)
@@ -32,11 +31,13 @@ extension UIColor {
     }
 }
 
-extension UIColor {
-    public static var random: UIColor {
-        return UIColor(red: .random(in: 0...1),
-                       green: .random(in: 0...1),
-                       blue: .random(in: 0...1),
-                       alpha: 1.0)
+public extension UIColor {
+    static var random: UIColor {
+        return UIColor(
+            red: .random(in: 0 ... 1),
+            green: .random(in: 0 ... 1),
+            blue: .random(in: 0 ... 1),
+            alpha: 1.0
+        )
     }
 }

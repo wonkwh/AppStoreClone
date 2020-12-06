@@ -6,31 +6,30 @@
 //  Copyright © 2020 wonkwh. All rights reserved.
 //
 
-import UIKit
 import Nuke
+import UIKit
 
 class SearchListCell: UICollectionViewCell, Reusable {
-
     var appResult: SearchResult! {
         didSet {
             nameLabel.text = appResult.trackName
             categoryLabel.text = appResult.primaryGenreName
             ratingLabel.text = "Rating: \(appResult.averageUserRating ?? 0)"
-            
+
             if let url = URL(string: appResult.artworkUrl100) {
                 Nuke.loadImage(with: url, into: appIconImageView)
             }
-            
+
             if let url1 = URL(string: appResult.screenshotUrls[0]) {
                 Nuke.loadImage(with: url1, into: screenshotImageView1)
             }
-            
+
             if appResult.screenshotUrls.count > 1 {
                 if let url1 = URL(string: appResult.screenshotUrls[1]) {
                     Nuke.loadImage(with: url1, into: screenshotImageView2)
                 }
             }
-            
+
             if appResult.screenshotUrls.count > 2 {
                 if let url1 = URL(string: appResult.screenshotUrls[2]) {
                     Nuke.loadImage(with: url1, into: screenshotImageView3)
@@ -38,7 +37,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
             }
         }
     }
-    
+
     let appIconImageView: UIImageView = {
         let view = UIImageView()
         view.withSize(64)
@@ -67,7 +66,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
     lazy var screenshotImageView1 = self.createScreenshotImageView()
     lazy var screenshotImageView2 = self.createScreenshotImageView()
     lazy var screenshotImageView3 = self.createScreenshotImageView()
-    
+
     func createScreenshotImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 8
@@ -77,7 +76,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }
-    
+
     let getButton: UIButton = {
         let button = UIButton()
         button.setTitle("GET", for: .normal)
@@ -101,7 +100,7 @@ class SearchListCell: UICollectionViewCell, Reusable {
         VStackView(spacing: 10) {
             HStackView(alignment: .center, spacing: 12.0) {
                 appIconImageView
-                VStackView() {
+                VStackView {
                     nameLabel
                     categoryLabel
                     ratingLabel
@@ -113,8 +112,8 @@ class SearchListCell: UICollectionViewCell, Reusable {
         }.withMargins(.allSides(16))
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
