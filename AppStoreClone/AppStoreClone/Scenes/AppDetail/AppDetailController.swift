@@ -22,17 +22,13 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
     var app: SearchResult?
     var reviews: Reviews?
 
-    let detailCellId = "detailCellId"
-    let previewCellId = "previewCellId"
-    let reviewCellId = "reviewCellId"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
 
-        collectionView.register(AppDetailCell.self, forCellWithReuseIdentifier: detailCellId)
-        collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: previewCellId)
-        collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
+        collectionView.register(cellType: AppDetailCell.self)
+        collectionView.register(cellType: PreviewCell.self)
+        collectionView.register(cellType: ReviewRowCell.self)
 
         navigationItem.largeTitleDisplayMode = .never
 
@@ -69,15 +65,15 @@ class AppDetailController: UICollectionViewController, UICollectionViewDelegateF
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailCellId, for: indexPath) as! AppDetailCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AppDetailCell.self)
             cell.app = app
             return cell
         } else if indexPath.item == 1 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! PreviewCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: PreviewCell.self)
             cell.horizontalController.app = app
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as! ReviewRowCell
+            let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ReviewRowCell.self)
             cell.reviewsController.reviews = reviews
             return cell
         }

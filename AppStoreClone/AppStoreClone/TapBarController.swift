@@ -11,7 +11,11 @@ class TapbarController: UITabBarController {
 
         viewControllers = [
             createTabNavController(title: "Apps", vc: AppsController(), tabImage: #imageLiteral(resourceName: "apps")),
-            createTabNavController(title: "Today", vc: UIViewController(), tabImage: #imageLiteral(resourceName: "today_icon")),
+            createTabNavController(
+                title: "Today",
+                vc: TodayController(collectionViewLayout: UICollectionViewFlowLayout()),
+                tabImage: #imageLiteral(resourceName: "today_icon")
+            ),
             createTabNavController(
                 title: "Search",
                 vc: AppSearchController(collectionViewLayout: UICollectionViewFlowLayout()),
