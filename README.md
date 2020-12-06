@@ -5,7 +5,7 @@
 
 
    | apps | app detail | app detail2 | today | search | 
-   | :-: | :-: | :-: | :-: | :-: | :-: |
+   | :-: | :-: | :-: | :-: | :-: | 
    | ![](./screenshot/screenshot1.png) | ![](./screenshot/screenshot2.png) | ![](./screenshot/screenshot3.png) | ![](./screenshot/screenshot4.png) | ![](./screenshot/screenshot7.png)
 
 
