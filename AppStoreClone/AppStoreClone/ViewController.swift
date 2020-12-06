@@ -1,19 +1,14 @@
 //
-//  ViewController.swift
-//  AppStoreClone
-//
-//  Created by ios_dev on 2020/01/03.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.red
     }
 }
-

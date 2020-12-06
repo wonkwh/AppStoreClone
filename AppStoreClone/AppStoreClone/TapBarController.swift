@@ -1,9 +1,6 @@
 //
-//  TapBarController.swift
-//  AppStoreClone
-//
-//  Created by kwanghyun.won` on 2020/01/03.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit
@@ -15,12 +12,16 @@ class TapbarController: UITabBarController {
         viewControllers = [
             createTabNavController(title: "Apps", vc: AppsController(), tabImage: #imageLiteral(resourceName: "apps")),
             createTabNavController(title: "Today", vc: UIViewController(), tabImage: #imageLiteral(resourceName: "today_icon")),
-            createTabNavController(title: "Search", vc: AppSearchController(collectionViewLayout: UICollectionViewFlowLayout()), tabImage: #imageLiteral(resourceName: "search"))
+            createTabNavController(
+                title: "Search",
+                vc: AppSearchController(collectionViewLayout: UICollectionViewFlowLayout()),
+                tabImage: #imageLiteral(resourceName: "search")
+            )
         ]
     }
 
     // TODO: - # createNavController and UIViewController extension for remove duplication
-    private func createTabNavController(title: String, vc: UIViewController, tabImage: UIImage) -> UIViewController{
+    private func createTabNavController(title: String, vc: UIViewController, tabImage: UIImage) -> UIViewController {
         vc.view.backgroundColor = .white
         let navController = UINavigationController(rootViewController: vc)
         vc.navigationItem.title = title
@@ -31,4 +32,3 @@ class TapbarController: UITabBarController {
         return navController
     }
 }
-

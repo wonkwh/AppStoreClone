@@ -1,9 +1,6 @@
 //
-//  UIView+Stackview.swift
-//  DesignKit-iOS
-//
-//  Created by ios_dev on 2019/11/27.
-//  Copyright © 2019 Vingle. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import UIKit
@@ -13,7 +10,8 @@ public extension UIView {
                             alignment: UIStackView.Alignment = .fill,
                             spacing: CGFloat = 0,
                             distribution: UIStackView.Distribution = .fill,
-                            views: [UIView]) -> UIStackView {
+                            views: [UIView]) -> UIStackView
+    {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
         stackView.spacing = spacing
@@ -26,31 +24,33 @@ public extension UIView {
 
     @discardableResult
     func VStackView(alignment: UIStackView.Alignment = .fill,
-                         spacing: CGFloat = 0,
-                         _ view: UIView) -> UIStackView {
-
+                    spacing: CGFloat = 0,
+                    _ view: UIView) -> UIStackView
+    {
         return _stack(.vertical, alignment: alignment, spacing: spacing, distribution: .fill, views: [view])
     }
 
     @discardableResult
     func VStackView(alignment: UIStackView.Alignment = .fill,
-                         spacing: CGFloat = 0,
-                    @StackBuilder _ views:() -> [UIView]) -> UIStackView {
-
+                    spacing: CGFloat = 0,
+                    @StackBuilder _ views: () -> [UIView]) -> UIStackView
+    {
         return _stack(.vertical, alignment: alignment, spacing: spacing, distribution: .fill, views: views())
     }
 
     @discardableResult
     func HStackView(alignment: UIStackView.Alignment = .fill,
-                         spacing: CGFloat = 0,
-                         _ view: UIView) -> UIStackView {
+                    spacing: CGFloat = 0,
+                    _ view: UIView) -> UIStackView
+    {
         return _stack(.horizontal, alignment: alignment, spacing: spacing, distribution: .fill, views: [view])
     }
 
     @discardableResult
     func HStackView(alignment: UIStackView.Alignment = .fill,
-                            spacing: CGFloat = 0,
-                       @StackBuilder _ views:() -> [UIView]) -> UIStackView {
+                    spacing: CGFloat = 0,
+                    @StackBuilder _ views: () -> [UIView]) -> UIStackView
+    {
         return _stack(.horizontal, alignment: alignment, spacing: spacing, distribution: .fill, views: views())
     }
 
@@ -112,5 +112,21 @@ public extension UIEdgeInsets {
 
     static func allSides(horizontal: CGFloat, vertical: CGFloat) -> UIEdgeInsets {
         return .init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
+    }
+}
+
+class VerticalStackView: UIStackView {
+    init(arrangedSubviews: [UIView], spacing: CGFloat = 0) {
+        super.init(frame: .zero)
+
+        arrangedSubviews.forEach { addArrangedSubview($0) }
+
+        self.spacing = spacing
+        self.axis = .vertical
+    }
+
+    @available(*, unavailable)
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

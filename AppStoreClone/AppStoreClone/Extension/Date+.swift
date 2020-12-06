@@ -1,9 +1,6 @@
 //
-//  Date+.swift
-//  DesignKit-iOS
-//
-//  Created by ios_dev on 2020/01/02.
-//  Copyright © 2020 vingle. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import Foundation
@@ -86,7 +83,7 @@ public extension Date {
             }
             return now.seconds(from: self).description + "초 \(agoTextKey)"
         }
-        
+
         return ""
     }
 }

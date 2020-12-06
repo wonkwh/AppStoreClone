@@ -1,16 +1,12 @@
 //
-//  AppStoreCloneTests.swift
-//  AppStoreCloneTests
-//
-//  Created by ios_dev on 2020/01/03.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
-import XCTest
 @testable import AppStoreClone
+import XCTest
 
 class AppStoreCloneTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -26,9 +22,8 @@ class AppStoreCloneTests: XCTestCase {
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

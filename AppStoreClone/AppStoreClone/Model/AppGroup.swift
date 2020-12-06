@@ -1,9 +1,6 @@
 //
-//  AppGroup.swift
-//  AppStoreClone
-//
-//  Created by wonkwh on 2020/11/22.
-//  Copyright © 2020 wonkwh. All rights reserved.
+// Created by kwanghyun.won
+// Copyright © 2020 wonkwh. All rights reserved.
 //
 
 import Foundation
@@ -18,5 +15,5 @@ struct Feed: Decodable {
 }
 
 struct FeedResult: Decodable {
-    let name, artistName, artworkUrl100: String
+    let id, name, artistName, artworkUrl100: String
 }
