@@ -11,12 +11,12 @@
 
    ## TODO
 
-   - [] Networking framwork
-   - [] darkMode
-   - [] convering SwiftUI
-   - [] Separate API access from BindableObject
-   - [] Use Combine with API access
-   - [] Reflect responses in MainThread via Combine
+   - [ ] Networking framwork
+   - [ ] support dark Mode
+   - [ ] convering SwiftUI
+   - [ ] Separate API access from BindableObject
+   - [ ] Use Combine with API access
+   - [ ] Reflect responses in MainThread via Combine
 
    ## Requirements
 
