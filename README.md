@@ -10,7 +10,7 @@
 
 
    ## TODO
-
+   - [x] Modularization
    - [ ] Networking framwork
    - [ ] support dark Mode
    - [ ] convering SwiftUI
