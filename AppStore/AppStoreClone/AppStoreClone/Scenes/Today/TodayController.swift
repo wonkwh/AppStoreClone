@@ -6,12 +6,13 @@
 import UIKit
 import Models
 import Swifty
+import ApiClient
 
 class TodayController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     var items = [TodayItem]()
 
     let activityIndicatorView: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        let aiv = UIActivityIndicatorView(style: .large)
         aiv.color = .darkGray
         aiv.startAnimating()
         aiv.hidesWhenStopped = true

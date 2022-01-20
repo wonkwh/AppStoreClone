@@ -11,7 +11,6 @@
 		7329008D23D0CAFD0015C4E4 /* AppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */; };
 		7329008F23D0CF930015C4E4 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */; };
 		7329009123D1D78A0015C4E4 /* AppListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7329009023D1D78A0015C4E4 /* AppListCell.swift */; };
-		735D524623C762AB004A96F7 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735D524523C762AB004A96F7 /* SearchService.swift */; };
 		735D524923C76855004A96F7 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = 735D524823C76855004A96F7 /* Nuke */; };
 		738A1EA923BF516600EBA4BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1EA823BF516600EBA4BB /* AppDelegate.swift */; };
 		738A1EAD23BF516600EBA4BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738A1EAC23BF516600EBA4BB /* ViewController.swift */; };
@@ -46,6 +45,7 @@
 		89F81D23257CC6E90074E59C /* BackEnabledNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81D1F257CC6E80074E59C /* BackEnabledNavigationController.swift */; };
 		89F81D24257CC6E90074E59C /* TodayMultipleAppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81D20257CC6E90074E59C /* TodayMultipleAppsController.swift */; };
 		F71ECA4E2799336C00F57DBE /* Swifty in Frameworks */ = {isa = PBXBuildFile; productRef = F71ECA4D2799336C00F57DBE /* Swifty */; };
+		F71ECA5027993B3E00F57DBE /* ApiClient in Frameworks */ = {isa = PBXBuildFile; productRef = F71ECA4F27993B3E00F57DBE /* ApiClient */; };
 		F7E87C5A27992D95005B95DE /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = F7E87C5927992D95005B95DE /* Models */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +71,6 @@
 		7329008C23D0CAFD0015C4E4 /* AppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupCell.swift; sourceTree = "<group>"; };
 		7329008E23D0CF930015C4E4 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		7329009023D1D78A0015C4E4 /* AppListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListCell.swift; sourceTree = "<group>"; };
-		735D524523C762AB004A96F7 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		738A1EA523BF516600EBA4BB /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738A1EA823BF516600EBA4BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		738A1EAC23BF516600EBA4BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 			files = (
 				F7E87C5A27992D95005B95DE /* Models in Frameworks */,
 				F71ECA4E2799336C00F57DBE /* Swifty in Frameworks */,
+				F71ECA5027993B3E00F57DBE /* ApiClient in Frameworks */,
 				735D524923C76855004A96F7 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,14 +142,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		735D524223C76270004A96F7 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				735D524523C762AB004A96F7 /* SearchService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		738A1E9C23BF516600EBA4BB = {
 			isa = PBXGroup;
 			children = (
@@ -175,8 +167,6 @@
 		738A1EA723BF516600EBA4BB /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
-				735D524223C76270004A96F7 /* Service */,
-				73F234C123C21A6B000ED484 /* Extension */,
 				738A1EDB23BF5B1400EBA4BB /* Scenes */,
 				738A1EDA23BF543100EBA4BB /* Resource */,
 				738A1EA823BF516600EBA4BB /* AppDelegate.swift */,
@@ -248,13 +238,6 @@
 				89F81C8C257B660C0074E59C /* HorizontalSnappingController.swift */,
 			);
 			path = Apps;
-			sourceTree = "<group>";
-		};
-		73F234C123C21A6B000ED484 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		89F81C91257B68EF0074E59C /* AppDetail */ = {
@@ -343,6 +326,7 @@
 				735D524823C76855004A96F7 /* Nuke */,
 				F7E87C5927992D95005B95DE /* Models */,
 				F71ECA4D2799336C00F57DBE /* Swifty */,
+				F71ECA4F27993B3E00F57DBE /* ApiClient */,
 			);
 			productName = AppStoreClone;
 			productReference = 738A1EA523BF516600EBA4BB /* AppStoreClone.app */;
@@ -528,7 +512,6 @@
 				89F81D23257CC6E90074E59C /* BackEnabledNavigationController.swift in Sources */,
 				73F234BE23C2123E000ED484 /* AppSearchController.swift in Sources */,
 				89F81D21257CC6E90074E59C /* TodayController.swift in Sources */,
-				735D524623C762AB004A96F7 /* SearchService.swift in Sources */,
 				89F81D0F257CC6330074E59C /* AppFullscreenDescriptionCell.swift in Sources */,
 				89F81D11257CC6330074E59C /* AppFullscreenHeaderCell.swift in Sources */,
 				89F81CC2257B73300074E59C /* PreviewScreenshotsController.swift in Sources */,
@@ -706,6 +689,7 @@
 					"$(PROJECT_DIR)/AppStoreClone/Resource",
 				);
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,6 +712,7 @@
 					"$(PROJECT_DIR)/AppStoreClone/Resource",
 				);
 				INFOPLIST_FILE = AppStoreClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -880,6 +865,10 @@
 		F71ECA4D2799336C00F57DBE /* Swifty */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Swifty;
+		};
+		F71ECA4F27993B3E00F57DBE /* ApiClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ApiClient;
 		};
 		F7E87C5927992D95005B95DE /* Models */ = {
 			isa = XCSwiftPackageProductDependency;

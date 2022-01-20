@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import ApiClient
 
 class AppSearchController: UICollectionViewController {
     fileprivate let cellId = "id1234"

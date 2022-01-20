@@ -5,11 +5,12 @@
 
 import Foundation
 import Models
+import Get
 
-class Service {
-    static let shared = Service() // singleton
+public class Service {
+    public static let shared = Service() // singleton
 
-    func fetchItunesSearchApp(keyword: String, _ completion: @escaping ([SearchResult], Error?) -> ()) {
+    public func fetchItunesSearchApp(keyword: String, _ completion: @escaping ([SearchResult], Error?) -> ()) {
         guard let url = URL(string: "https://itunes.apple.com/search?term=\(keyword)&entity=software") else {
             return
         }
@@ -31,12 +32,12 @@ class Service {
         }.resume()
     }
 
-    func fetchTopGrossing(completion: @escaping (AppGroup?, Error?) -> ()) {
+    public func fetchTopGrossing(completion: @escaping (AppGroup?, Error?) -> ()) {
         let urlString = "https://rss.itunes.apple.com/api/v1/kr/ios-apps/top-grossing/all/50/explicit.json"
         fetchAppGroup(urlString: urlString, completion: completion)
     }
 
-    func fetchGames(completion: @escaping (AppGroup?, Error?) -> ()) {
+    public func fetchGames(completion: @escaping (AppGroup?, Error?) -> ()) {
         fetchAppGroup(
             urlString: "https://rss.itunes.apple.com/api/v1/kr/ios-apps/new-games-we-love/all/50/explicit.json",
             completion: completion
@@ -44,7 +45,7 @@ class Service {
     }
 
     // generic helper
-    func fetchAppGroup(urlString: String, completion: @escaping (AppGroup?, Error?) -> Void) {
+    public func fetchAppGroup(urlString: String, completion: @escaping (AppGroup?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
 
         URLSession.shared.dataTask(with: url) { data, _, err in
@@ -62,8 +63,8 @@ class Service {
         }.resume()
     }
 
-    // declare my generic json function here
-    func fetchGenericJSONData<T: Decodable>(urlString: String, completion: @escaping (T?, Error?) -> ()) {
+    // declare my generic json public function here
+    public func fetchGenericJSONData<T: Decodable>(urlString: String, completion: @escaping (T?, Error?) -> ()) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { data, _, err in
             if let err = err {

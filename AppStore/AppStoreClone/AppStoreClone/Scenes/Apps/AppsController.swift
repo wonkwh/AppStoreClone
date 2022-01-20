@@ -6,6 +6,7 @@
 import UIKit
 import Models
 import Swifty
+import ApiClient
 
 class AppsController: UIViewController {
     let headerId = "AppsPageHeaderId"
@@ -30,7 +31,7 @@ class AppsController: UIViewController {
     }()
 
     let activityIndicatorView: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+      let aiv = UIActivityIndicatorView(style: .large)
         aiv.color = .black
         aiv.startAnimating()
         aiv.hidesWhenStopped = true

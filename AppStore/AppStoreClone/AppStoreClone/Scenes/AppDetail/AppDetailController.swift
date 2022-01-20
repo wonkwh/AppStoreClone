@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import ApiClient
 
 class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     fileprivate let appId: String
