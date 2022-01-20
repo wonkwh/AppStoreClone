@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class BaseTodayCell: UICollectionViewCell {
     var todayItem: TodayItem!

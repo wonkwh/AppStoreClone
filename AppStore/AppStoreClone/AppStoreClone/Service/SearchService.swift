@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import Models
 
 class Service {
     static let shared = Service() // singleton

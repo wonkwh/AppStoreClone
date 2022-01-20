@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     var reviews: Reviews? {

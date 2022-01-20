@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class AppSearchController: UICollectionViewController {
     fileprivate let cellId = "id1234"

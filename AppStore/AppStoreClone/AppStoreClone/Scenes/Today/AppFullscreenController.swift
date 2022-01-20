@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class AppFullscreenController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dismissHandler: (() -> ())?

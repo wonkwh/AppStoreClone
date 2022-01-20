@@ -5,6 +5,8 @@
 
 import Nuke
 import UIKit
+import Models
+
 
 class SearchListCell: UICollectionViewCell, Reusable {
     var appResult: SearchResult! {

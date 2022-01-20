@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class TodayMultipleAppsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let cellId = "cellId"

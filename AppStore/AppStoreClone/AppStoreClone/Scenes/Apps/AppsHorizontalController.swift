@@ -5,6 +5,7 @@
 
 import Nuke
 import UIKit
+import Models
 
 class AppsHorizontalController: UIViewController {
     lazy var sectionCollectionView: UICollectionView = {

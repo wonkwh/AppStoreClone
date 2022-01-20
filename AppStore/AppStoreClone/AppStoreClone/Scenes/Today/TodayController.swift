@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class TodayController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     var items = [TodayItem]()

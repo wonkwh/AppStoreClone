@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class AppsController: UIViewController {
     let headerId = "AppsPageHeaderId"

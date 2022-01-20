@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class AppDetailController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     fileprivate let appId: String

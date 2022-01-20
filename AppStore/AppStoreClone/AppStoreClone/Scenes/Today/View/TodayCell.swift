@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Models
 
 class TodayCell: BaseTodayCell, Reusable {
     override var todayItem: TodayItem! {
