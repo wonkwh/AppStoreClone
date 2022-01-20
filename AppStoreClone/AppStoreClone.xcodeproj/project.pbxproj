@@ -51,8 +51,6 @@
 		89F81CBD257B6D5B0074E59C /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CBC257B6D5B0074E59C /* UIImageView+.swift */; };
 		89F81CC2257B73300074E59C /* PreviewScreenshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CC1257B73300074E59C /* PreviewScreenshotsController.swift */; };
 		89F81CC7257B74930074E59C /* ReviewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81CC6257B74930074E59C /* ReviewsController.swift */; };
-		89F81CE1257CB3500074E59C /* WoodPeckeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; };
-		89F81CE2257CB3500074E59C /* WoodPeckeriOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 89F81CD5257CB2300074E59C /* WoodPeckeriOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		89F81CFC257CBA7F0074E59C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 89F81CFA257CBA7F0074E59C /* .swiftlint.yml */; };
 		89F81CFD257CBA7F0074E59C /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 89F81CFB257CBA7F0074E59C /* .swiftformat */; };
 		89F81D0C257CC6330074E59C /* BaseTodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F81D06257CC6330074E59C /* BaseTodayCell.swift */; };
@@ -84,20 +82,6 @@
 			remoteInfo = AppStoreClone;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		89F81CE3257CB3500074E59C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				89F81CE2257CB3500074E59C /* WoodPeckeriOS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7329008A23D0C7870015C4E4 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
@@ -171,7 +155,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				735D524923C76855004A96F7 /* Nuke in Frameworks */,
-				89F81CE1257CB3500074E59C /* WoodPeckeriOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +392,6 @@
 				89F81CF0257CB7C60074E59C /* swiftformat */,
 				738A1EA223BF516600EBA4BB /* Frameworks */,
 				738A1EA323BF516600EBA4BB /* Resources */,
-				89F81CE3257CB3500074E59C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -466,7 +448,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = wonkwh;
 				TargetAttributes = {
 					738A1EA423BF516600EBA4BB = {
@@ -699,6 +681,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -759,6 +742,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

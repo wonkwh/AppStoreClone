@@ -5,7 +5,7 @@
 
 import UIKit
 
-@_functionBuilder
+@resultBuilder
 public enum StackBuilder {
     public static func buildBlock(_ segments: UIView...) -> [UIView] {
         var views: [UIView] = []
