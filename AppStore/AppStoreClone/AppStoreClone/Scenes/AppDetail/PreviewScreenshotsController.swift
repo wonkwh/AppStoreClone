@@ -6,6 +6,7 @@
 import Nuke
 import UIKit
 import Models
+import Swifty
 
 class ScreenshotCell: UICollectionViewCell, Reusable {
     let imageView = UIImageView(cornerRadius: 12)

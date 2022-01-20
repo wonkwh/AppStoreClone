@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Swifty
 
 class AppListCell: UICollectionViewCell, Reusable {
     let imageView: UIImageView = {

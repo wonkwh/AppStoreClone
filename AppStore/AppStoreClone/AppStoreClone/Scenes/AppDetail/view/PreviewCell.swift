@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Swifty
 
 class PreviewCell: UICollectionViewCell, Reusable {
     let previewLabel = UILabel(text: "Preview", font: .boldSystemFont(ofSize: 20))

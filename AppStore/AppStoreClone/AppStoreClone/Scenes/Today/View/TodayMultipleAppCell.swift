@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import Swifty
 
 class TodayMultipleAppCell: BaseTodayCell, Reusable {
     override var todayItem: TodayItem! {

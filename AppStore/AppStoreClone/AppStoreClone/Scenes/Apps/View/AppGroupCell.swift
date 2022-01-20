@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Swifty
 
 class AppGroupCell: UICollectionViewCell, Reusable {
     let titleLabel: UILabel = {

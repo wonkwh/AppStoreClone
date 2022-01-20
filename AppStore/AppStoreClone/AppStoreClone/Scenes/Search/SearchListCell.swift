@@ -6,7 +6,7 @@
 import Nuke
 import UIKit
 import Models
-
+import Swifty
 
 class SearchListCell: UICollectionViewCell, Reusable {
     var appResult: SearchResult! {

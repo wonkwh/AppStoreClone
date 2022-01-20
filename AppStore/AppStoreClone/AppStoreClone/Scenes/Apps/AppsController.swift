@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import Swifty
 
 class AppsController: UIViewController {
     let headerId = "AppsPageHeaderId"

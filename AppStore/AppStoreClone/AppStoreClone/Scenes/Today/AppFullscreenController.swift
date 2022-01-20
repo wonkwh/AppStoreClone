@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import Swifty
 
 class AppFullscreenController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var dismissHandler: (() -> ())?

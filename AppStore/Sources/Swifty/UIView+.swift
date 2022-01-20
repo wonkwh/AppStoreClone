@@ -128,7 +128,7 @@ public extension UIView {
         bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
 
-    func fillSuperview(padding: UIEdgeInsets = .zero) {
+    public func fillSuperview(padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superviewTopAnchor = superview?.topAnchor {
             topAnchor.constraint(equalTo: superviewTopAnchor, constant: padding.top).isActive = true
@@ -147,7 +147,7 @@ public extension UIView {
         }
     }
 
-    func centerInSuperview(axis: AnchorAxis = .xy) {
+    public func centerInSuperview(axis: AnchorAxis = .xy) {
         guard let superview = superview else {
             return
         }
@@ -165,7 +165,7 @@ public extension UIView {
         }
     }
 
-    func insect(by insect: UIEdgeInsets) {
+    public func insect(by insect: UIEdgeInsets) {
         guard let superview = superview else {
             return
         }

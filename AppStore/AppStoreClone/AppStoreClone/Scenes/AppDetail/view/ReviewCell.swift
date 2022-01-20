@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Swifty
 
 class ReviewCell: UICollectionViewCell, Reusable {
     let titleLabel = UILabel(text: "Review Title", font: .boldSystemFont(ofSize: 18))

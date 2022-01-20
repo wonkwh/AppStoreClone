@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import Swifty
 
 class AppsHeaderCell: UICollectionViewCell, Reusable {
     let companyLabel: UILabel = {

@@ -6,6 +6,7 @@
 import Nuke
 import UIKit
 import Models
+import Swifty
 
 class MultipleAppCell: UICollectionViewCell, Reusable {
     var app: FeedResult! {

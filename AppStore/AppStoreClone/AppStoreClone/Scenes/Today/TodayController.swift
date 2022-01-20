@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import Swifty
 
 class TodayController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     var items = [TodayItem]()

@@ -25,7 +25,7 @@ public extension UITableView {
     /// ```
     ///
     /// - Parameter cellType: Reusable type cell
-    func register<T: UITableViewCell>(cellType: T.Type) where T: Reusable {
+    public func register<T: UITableViewCell>(cellType: T.Type) where T: Reusable {
         register(cellType.self, forCellReuseIdentifier: cellType.identifier)
     }
 
@@ -39,7 +39,7 @@ public extension UITableView {
     /// - Parameters:
     ///   - indexPath: IndexPath
     ///   - cellType: Reusable TableCell type
-    func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath,
+    public func dequeueReusableCell<T: UITableViewCell>(for indexPath: IndexPath,
                                                  cellType: T.Type = T.self) -> T where T: Reusable
     {
         guard let cell = dequeueReusableCell(withIdentifier: cellType.identifier, for: indexPath) as? T else {
@@ -51,11 +51,11 @@ public extension UITableView {
 }
 
 public extension UICollectionView {
-    func register<T: UICollectionViewCell>(cellType: T.Type) where T: Reusable {
+    public func register<T: UICollectionViewCell>(cellType: T.Type) where T: Reusable {
         register(cellType.self, forCellWithReuseIdentifier: cellType.identifier)
     }
 
-    func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath,
+    public func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath,
                                                       cellType: T.Type = T.self) -> T where T: Reusable
     {
         guard let cell = dequeueReusableCell(withReuseIdentifier: cellType.identifier, for: indexPath) as? T else {

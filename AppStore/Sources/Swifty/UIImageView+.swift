@@ -6,7 +6,7 @@
 import Nuke
 import UIKit
 
-extension UIImageView {
+public extension UIImageView {
     convenience init(cornerRadius: CGFloat) {
         self.init(image: nil)
         layer.cornerRadius = cornerRadius
@@ -21,7 +21,7 @@ extension UIImageView {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     convenience init(title: String) {
         self.init(type: .system)
         setTitle(title, for: .normal)

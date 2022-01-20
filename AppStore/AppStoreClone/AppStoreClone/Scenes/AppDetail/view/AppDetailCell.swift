@@ -6,6 +6,7 @@
 import Nuke
 import UIKit
 import Models
+import Swifty
 
 class AppDetailCell: UICollectionViewCell, Reusable {
     var app: SearchResult? {

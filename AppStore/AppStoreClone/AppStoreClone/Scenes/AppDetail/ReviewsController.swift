@@ -5,6 +5,7 @@
 
 import UIKit
 import Models
+import Swifty
 
 class ReviewsController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     var reviews: Reviews? {
